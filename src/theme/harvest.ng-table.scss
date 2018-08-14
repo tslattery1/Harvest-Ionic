@@ -1,0 +1,485 @@
+$table-border-color: #999;
+$cell-border-color: #eee;
+//** Padding for `<th>`s and `<td>`s.
+$table-cell-padding:            8px !default;
+//** Padding for cells in `.table-condensed`.
+$table-condensed-cell-padding:  5px !default;
+//$font-size-base: 30px;
+
+//** Default background color used for all tables.
+$table-bg:                      transparent !default;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #f9f9f9 !default;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f5f5f5 !default;
+$table-bg-active:               $table-bg-hover !default;
+
+//** Border color for table and cell borders.
+$table-border-color:            #ddd !default;
+$text-muted:                    #4d4d4d !default;
+$harvest-table-border-color:    #e6e6e6 !default;
+$harvest-grey-4d4d:             #4d4d4d !default;
+$harvest_light_text:              #656C69 !default;
+
+$line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+$line-height-computed:    floor(($font-size-base * $line-height-base));
+
+.table-container{
+  margin: 20px auto;
+}
+
+.table {
+  display: block;
+  margin: 10px 0;
+  width: 100%;
+
+  table {
+    background-color: $table-bg;
+    color: $harvest-light-text;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: $line-height-computed;
+    border: 1px solid $harvest-table-border-color;
+    border-collapse: separate !important;
+
+    // Cells
+    > thead,
+    > tbody,
+    > tfoot {
+      > tr {
+        > th,
+        > td {
+          font-size: 1.1em;
+          color: $harvest-grey-4d4d;
+          line-height: 2;
+          //height: 109px;
+          vertical-align: middle;
+          text-align: left;
+          padding: 10px 20px;
+        }
+      }
+    }
+
+    th {
+      //height: 90px !important;
+      line-height: 1;
+      text-align: left;
+      border-bottom: 1px solid darken($harvest-table-border-color, 8) !important;
+    }
+
+    > thead > tr > th {
+      font-family: "ProximaNova-SemiBold";
+      font-size: 1.2em;
+      vertical-align: bottom;
+      border-bottom: 2px solid $table-border-color;
+    }
+
+    > caption + thead,
+    > colgroup + thead,
+    > thead:first-child {
+      > tr:first-child {
+        > th,
+        > td {
+          border: 0;
+        }
+      }
+    }
+  }
+
+  caption {
+    padding-top: $table-cell-padding;
+    padding-bottom: $table-cell-padding;
+    color: $text-muted;
+    text-align: left;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  &_condensed {
+    table {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            padding: $table-condensed-cell-padding;
+            line-height: 70px - $table-condensed-cell-padding*2;
+            height: 59px;
+          }
+        }
+      }
+    }
+  }
+
+  &_striped {
+    table {
+      > tbody > tr:nth-of-type(odd) {
+        background-color: $table-bg-accent;
+      }
+    }
+  }
+
+  &--col {
+    &_primary {
+      padding-left: 10px;
+      padding-right: 10px;
+      text-align: center !important;
+    }
+  }
+
+  &--controls {
+    margin-bottom: 10px;;
+  }
+}
+
+
+
+// Baseline styles
+
+.hvst-table {
+
+
+  .hvst-table-header,
+
+  th.header{
+
+    //text-transform: uppercase;
+  }
+
+  th:nth-child(1) div.hvst-table-header, .first-column{
+    font-family: "ProximaNova-SemiBold";
+    text-align: left;
+    padding-left: 60px;
+  }
+  th:nth-child(2) div.hvst-table-header, .second-column{
+    text-align: center;
+  }
+
+  .subtotal-column{
+    width: 8%;
+  }
+  // Bottom align for column headings
+
+  // Remove top border from thead by default
+
+  // Account for multiple tbody instances
+  > tbody + tbody {
+    border-top: 2px solid $table-border-color;
+  }
+
+  // Nesting
+  .table {
+    background-color: white;
+  }
+}
+
+
+// Condensed table w/ half padding
+
+.hvst-table-condensed {
+
+}
+
+
+// Bordered version
+//
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+  border: 1px solid $table-border-color;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: 1px solid $table-border-color;
+      }
+    }
+  }
+  > thead > tr {
+    > th,
+    > td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+
+// Zebra-striping
+//
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+
+.table-striped {
+
+}
+
+
+// Hover effect
+//
+// Placed here since it has to come after the potential zebra striping
+
+.table-hover {
+  > tbody > tr:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+
+// Table cell sizing
+//
+// Reset default table behavior
+
+table col[class*="col-"] {
+  position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+  float: none;
+  display: table-column;
+}
+table {
+  td,
+  th {
+    &[class*="col-"] {
+      position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+      float: none;
+      display: table-cell;
+    }
+  }
+}
+
+
+// Table backgrounds
+//
+// Exact selectors below required to override `.table-striped` and prevent
+// inheritance to nested tables.
+
+// Generate the contextual variants
+//@include table-row-variant('active', $table-bg-active);
+//@include table-row-variant('success', $state-success-bg);
+//@include table-row-variant('info', $state-info-bg);
+//@include table-row-variant('warning', $state-warning-bg);
+//@include table-row-variant('danger', $state-danger-bg);
+
+
+// Responsive tables
+//
+// Wrap your tables in `.table-responsive` and we'll make them mobile friendly
+// by enabling horizontal scrolling. Only applies <768px. Everything above that
+// will display normally.
+
+.table-responsive {
+  overflow-x: auto;
+  min-height: 0.01%; // Workaround for IE9 bug (see https://github.com/twbs/bootstrap/issues/14837)
+
+  @media screen and (max-width: 2560px) {
+    width: 100%;
+    margin-bottom: ($line-height-computed * 0.75);
+    overflow-y: hidden;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid $table-border-color;
+
+    // Tighten up spacing
+    > .table {
+      margin-bottom: 0;
+
+      // Ensure the content doesn't wrap
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: nowrap;
+          }
+        }
+      }
+    }
+
+    // Special overrides for the bordered tables
+    > .table-bordered {
+      border: 0;
+
+      // Nuke the appropriate borders so that the parent can handle them
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th:first-child,
+          > td:first-child {
+            border-left: 0;
+          }
+          > th:last-child,
+          > td:last-child {
+            border-right: 0;
+          }
+        }
+      }
+
+      // Only nuke the last row's bottom-border in `tbody` and `tfoot` since
+      // chances are there will be only one `tr` in a `thead` and that would
+      // remove the border altogether.
+      > tbody,
+      > tfoot {
+        > tr:last-child {
+          > th,
+          > td {
+            border-bottom: 0;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.ng-table {
+  th {
+    text-align: center;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    &.sortable {
+      cursor: pointer;
+
+      .sort-indicator {
+        padding-right: 18px;
+        position: relative;
+
+        &:after, &:before {
+          content: "";
+          border-width: 0 4px 4px;
+          border-style: solid;
+          border-color: #000 transparent;
+          visibility: visible;
+          right: 5px;
+          top: 50%;
+          position: absolute;
+          opacity: .3;
+          margin-top: -4px;
+        }
+        &:before {
+          margin-top: 2px;
+          border-bottom: none;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top: 4px solid #000;
+        }
+      }
+
+      .sort-indicator:hover:after, .sort-indicator:hover:before {
+        opacity: 1;
+        visibility: visible;
+      }
+      &.sort-desc, &.sort-asc {
+        background-color: rgba(141, 192, 219, 0.25);
+        text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+
+        .sort-indicator:after {
+          margin-top: -2px;
+        }
+        .sort-indicator:before {
+          visibility: hidden;
+        }
+      }
+      &.sort-asc .sort-indicator:after, &.sort-asc .sort-indicator:hover:after {
+        visibility: visible;
+        filter: alpha(opacity=60);
+        -khtml-opacity: 0.6;
+        -moz-opacity: 0.6;
+        opacity: 0.6;
+      }
+      &.sort-desc .sort-indicator:after {
+        border-bottom: none;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid #000;
+        visibility: visible;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        filter: alpha(opacity=60);
+        -khtml-opacity: 0.6;
+        -moz-opacity: 0.6;
+        opacity: 0.6;
+      }
+    }
+    &.filter {
+      .input-filter {
+        margin: 0;
+        display: block;
+        width: 100%;
+        min-height: 30px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+    }
+  }
+
+  & + .pagination {
+    margin-top: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .ng-table-responsive {
+    border-bottom: 1px solid $table-border-color;
+    tr {
+      border-top: 1px solid $table-border-color;
+      border-left: 1px solid $table-border-color;
+      border-right: 1px solid $table-border-color;
+    }
+    td:before {
+      position: absolute;
+      padding: 8px;
+      left: 0;
+      top: 0;
+      width: 50%;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: bold;
+    }
+    thead {
+      tr {
+        th {
+          text-align: left;
+        }
+        &.ng-table-filters {
+          th {
+            padding: 0;
+
+            form > div {
+              padding: 8px;
+            }
+          }
+        }
+      }
+    }
+    td {
+      border: none;
+      border-bottom: 1px solid $cell-border-color;
+      position: relative;
+      padding-left: 50%;
+      white-space: normal;
+      text-align: left;
+
+      &:before {
+        content: attr(data-title-text);
+      }
+    }
+    &, thead, tbody, th, td, tr {
+      display: block;
+    }
+  }
+
+  .ng-table-pager {}
+  .ng-table-pagination {}
+  .ng-table-counts {}
+}

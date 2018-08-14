@@ -1,0 +1,7 @@
+<div class="text-container" *ngIf="company">
+  <div class="companyid">{{ company.name }}, {{ company.location }}</div>
+
+  <div class="order_status">
+    {{ orderTitle(company.order_state) }} <span class="status status_{{company.order_state}}"></span>
+  </div>
+</div>

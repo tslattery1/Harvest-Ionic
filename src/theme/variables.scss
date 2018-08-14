@@ -1,0 +1,105 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+// Font path is used to include ionicons,
+// roboto, and noto sans fonts
+$font-path: "../assets/fonts";
+
+
+// The app direction is used to include
+// rtl styles in your app. For more info, please see:
+// http://ionicframework.com/docs/theming/rtl-support/
+$app-direction: ltr;
+
+
+@import "ionic.globals";
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/theming/overriding-ionic-variables/
+
+
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+
+$colors: (
+  primary:        #488aff,
+  secondary:      #32db64,
+  danger:         #f53d3d,
+  light:          #fff,
+
+  dark:           #444,
+  stable:         #f7f7f7,
+  positive:       #387ef5,
+  calm:           #4fc0e9,
+  balanced:       #94c654,
+  energized:      #f2b34f, // Harvest "Habanero" Orange
+  energized_bold: #ff931e,
+  assertive:      #ef473a,
+  royal:          #9b71c6,
+  stable-dark:    #737373
+);
+
+// Import app related variables
+// --------------------------------------------------
+
+@import "harvest.variables";
+
+// Global app variables override
+// --------------------------------------------------
+$menu-width: $hvst-right-menu-width;
+
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+$font-family-ios-base: "ProximaNova-Regular";
+$text-ios-color: map_get($colors, "dark");
+$menu-ios-background: map_get($colors, "stable");
+
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+$font-family-md-base: "ProximaNova-Regular";
+$text-md-color: map_get($colors, "dark");
+$menu-md-background: map_get($colors, "stable");
+
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+$font-family-wp-base: "ProximaNova-Regular";
+$text-wp-color: map_get($colors, "dark");
+$menu-wp-background: map_get($colors, "stable");
+
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+
+@import "ionic.theme.default";
+@import "harvest.ng-table.scss";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/ionicons/
+
+@import "ionic.ionicons";
+@import "harvest.icons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "fonts";

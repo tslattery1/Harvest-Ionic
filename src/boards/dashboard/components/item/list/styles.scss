@@ -1,0 +1,139 @@
+item-list {
+  table.shopping-list-table{
+
+    tr{
+
+      td[data-title="Item"]{
+        max-width: 340px;
+        padding-right: 10px;
+      }
+
+      td[data-title="Category"]{
+        max-width: 115px;
+      }
+
+
+      td[data-title="Settings and Delete"]{
+        button:before{
+          color: #878787;
+        }
+      }
+
+    }
+
+  }
+
+  div.shopping-list-categories{
+
+    label{
+      width: auto !important;
+      max-width: 100%;
+    }
+
+    div.clist{
+      margin-bottom: 30px;
+
+      &:last-child{
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  h4.shopping-list-title{
+    position: relative;
+    line-height: 30px;
+    margin-top: 0px;
+
+    span.item-count{
+      display: inline-block;
+      border: 2px solid map_get($colors, "calm");
+      padding: 4px;
+      line-height: 26px;
+      min-width: 54px;
+      text-align: center;
+      font-size: 24px;
+      font-family: ProximaNova-SemiBold;
+      color: map_get($colors, "calm");
+      border-radius: 4px;
+      position: absolute;
+      right: 12px;
+      top: -4px;
+      margin-top: 14px;
+    }
+  }
+
+  input[type="radio"]:checked + label{
+
+    h4.shopping-list-title{
+      color: white !important;
+
+      span.item-count{
+        border-color: white;
+        color: white;
+      }
+    }
+
+  }
+
+  .table-info {
+    font-size: 1.3em;
+    padding: 10px 0;
+  }
+
+  div.product-table-search-cont{
+    right: 8px;
+  }
+
+  div.list-settings-btn-container{
+    text-align: right;
+
+    button{
+      color: #666666 !important;
+      font-size: 14px;
+      &.active, &.activated{
+        color: white !important;
+      }
+
+      i{
+        margin-right: 0.2em;
+        &:before{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  div.new-list-container{
+    button{
+      margin-bottom: 40px;
+      border-radius: 4px;
+      font-size: 16px;
+      color: #666666 !important;
+      font-family: ProximaNova-Regular;
+      padding-right: 10px;
+      padding-left: 8px;
+      min-width: 275px;
+      max-width: 275px;
+      height: 39px;
+      i{
+        margin-right: 0.2em;
+        &:before{
+          font-size: 14px;
+        }
+      }
+      &.active, &.activated{
+        color: white !important;
+      }
+    }
+  }
+
+  .button {
+    text-transform: none;
+
+    &_left {
+      .button-inner {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

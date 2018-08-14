@@ -1,0 +1,46 @@
+current-company {
+  .text-container{
+    display: inline-block;
+    text-align: left;
+    //margin-right: 110px;
+  }
+
+  .order_status{
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    //font-size: 2em;
+    font-family: ProximaNova-Light;
+  }
+
+  .status {
+    display: inline-block;
+    margin: 0 1em;
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    &_0 {
+      &:after {
+        background-color: map_get($colors, "calm");
+      }
+    }
+
+    &_1 {
+      &:after {
+        background-color: map_get($colors, "balanced");
+      }
+    }
+
+    &_2 {
+      &:after {
+        background-color: map_get($colors, "assertive");
+      }
+    }
+  }
+}

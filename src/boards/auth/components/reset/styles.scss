@@ -1,0 +1,133 @@
+pin-reset {
+  .step {
+    &--title {
+      font-family: ProximaNova-SemiBold, serif;
+
+      .title {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3em;
+      }
+
+      &[ng-reflect-color="calm"] {
+        .icon {
+          background-color: map_get($colors, "calm");
+        }
+      }
+
+      &[ng-reflect-color="balanced"] {
+        .icon {
+          background-color: map_get($colors, "balanced");
+        }
+      }
+
+      .icon {
+        display: block;
+        width: 25px;
+        height: 25px;
+        color: map_get($colors, "dark");
+        border-radius: 50px;
+        margin-right: 10px;
+        padding: 6px 2px;
+        font-style: normal;
+        font-size: .8em;
+        line-height: 1;
+
+        &_method {
+          &:before {
+            content: "1"
+          }
+        }
+
+        &_approve {
+          &:before {
+            content: "2"
+          }
+        }
+
+        &_new {
+          &:before {
+            content: "3"
+          }
+        }
+
+        &_confirm {
+          &:before {
+            content: "4"
+          }
+        }
+      }
+    }
+
+    &--content {
+      padding: 20px;
+
+      p {
+        font-size: 1.2em;
+      }
+    }
+
+    &_method {
+      .actions {
+        flex-flow: column;
+
+        .button {
+          & + .button {
+            margin-top: 20px;
+          }
+        }
+      }
+    }
+
+    &_approve {
+      .step--content {
+        padding: 40px 20px;
+        text-align: center;
+
+        input {
+          margin: 30px 0;
+          width: 100%;
+          background: darken(map_get($colors, "dark"), 20%);
+          border: none;
+          padding: 10px 20px;
+          border-radius: 3px;
+          text-align: center;
+        }
+      }
+
+      .actions {
+        flex-flow: row;
+        justify-content: space-between;
+      }
+    }
+
+    &_new {
+      .step--content {
+        padding: 20px 30px;
+        text-align: center;
+      }
+    }
+
+  }
+
+  .actions {
+    display: flex;
+    margin: 20px 0;
+  }
+
+  .success {
+    padding: 10px 20px;
+    text-align: center;
+    color: map_get($colors, "balanced");
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-family: ProximaNova-SemiBold, serif;
+
+    i {
+      display: block;
+      font-size: 1.3em;
+    }
+  }
+}

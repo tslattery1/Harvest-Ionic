@@ -1,0 +1,9 @@
+<span class="orderTitle">
+  <span class="arriving-today" *ngIf="isArrivingToday() && !isTodayDeliveriesComplete()">
+    Out For Delivery
+  </span>
+
+  {{ date.format('ddd, MM/DD/YY') }}
+</span>
+
+

@@ -1,0 +1,101 @@
+<div class="workspace workspace_{{ state.step }}">
+  <header>
+    <div class="box--actions">
+      <!--<button class="box&#45;&#45;action box&#45;&#45;action_right"-->
+              <!--ion-button-->
+              <!--clear-->
+              <!--(click)="doSwitchStep('create')"-->
+              <!--*ngIf="(state.step == 'select')"-->
+      <!--&gt;-->
+        <!--Create user-->
+        <!--<i class="icon hvst-user-add"></i>-->
+      <!--</button>-->
+
+      <button class="box--action box--action_left"
+              ion-button
+              clear
+              color="energized"
+              (click)="doResetPinClick('reset')"
+              *ngIf="(state.step == 'pincode')">
+        Forgot PIN?
+      </button>
+
+      <button class="box--action box--action_right"
+              ion-button
+              clear
+              (click)="doSwitchStep('select')"
+              *ngIf="(state.step == 'pincode')"
+      >
+        Not you?
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+
+      <button class="box--action box--action_right"
+              ion-button
+              clear
+              (click)="doResetPinDeclineClick()"
+              *ngIf="(state.step == 'reset')"
+      >
+        Cancel Pin Reset
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </div>
+
+    <div class="row auth--header">
+      <div class="auth--title">
+        <dynamic-title class="box--title" [title]="state.title" [icon]="state.icon" [color]="state.color"></dynamic-title>
+      </div>
+
+      <div class="auth--actions" *ngIf="state.isResetSuggested">
+        <button ion-button outline color="energized" (click)="doResetPinClick()">Yes</button>
+        <button ion-button outline color="calm" (click)="doResetPinDeclineClick()">No</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="container">
+    <div class="container--viewport" [ngSwitch]="state.step" [@state]="state.step">
+      <ng-container id="select-content" *ngSwitchCase="'select'">
+        <ion-scroll scrollY="true" scrollX="false" zoom="false">
+          <ion-list no-lines>
+            <button ion-item clear *ngFor="let user of users | async" class="user" (click)="doUserSelect(user)">
+              <ion-avatar item-start class="user--avatar">
+                <img [src]="user.avatar_src"/>
+              </ion-avatar>
+              <h2 class="user--name">{{ user.first_name }} {{ user.last_name }}</h2>
+              <p class="user--position">{{ user.role }}</p>
+            </button>
+          </ion-list>
+
+          <!--<pinpad ([pincode])="pincode"></pinpad>-->
+        </ion-scroll>
+      </ng-container>
+
+      <ng-container id="pinpad-content" *ngSwitchCase="'pincode'">
+        <div class="user user_selected">
+          <ion-avatar item-start class="user--avatar">
+            <img [src]="state.user.avatar_src"/>
+          </ion-avatar>
+          <h2 class="user--name">{{ state.user.first_name }} {{ state.user.last_name }}</h2>
+          <p class="user--position">{{ state.user.role }}</p>
+        </div>
+
+        <pinpad color="stable-dark"
+                [(pincode)]="pincode"
+                (pincodeChange)="doPinEnter()"
+                [disabled]="state.isInProgress || state.isPinPadLocked">
+        </pinpad>
+      </ng-container>
+
+      <ng-container id="pinpad-reset" *ngSwitchCase="'reset'">
+        <div class="user user_selected">
+          <ion-avatar item-start class="user--avatar">
+            <img [src]="state.user.avatar_src"/>
+          </ion-avatar>
+        </div>
+
+        <pin-reset [user]="state.user" (finished)="onResetFinished()"></pin-reset>
+      </ng-container>
+    </div>
+  </section>
+</div>

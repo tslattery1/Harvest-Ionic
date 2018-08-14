@@ -1,0 +1,23 @@
+<button ion-button clear no-padding no-ripple color="light" *ngIf="user" (click)="doTogglePopup()">
+  <div class="column col-center">
+    <img [src]="(user.avatar_src)" alt="" class="avatar">
+  </div>
+
+  <div class="column col-center">
+    <span>{{ user.first_name }} {{ user.last_name }}</span>
+    <ion-icon name="ios-arrow-down"></ion-icon>
+  </div>
+</button>
+
+<div class="user-header-popup-menu" id="userHeaderPopup" *ngIf="user">
+  <div class="user-popup-tail"></div>
+  <div class="list">
+    <a class="item item-icon-left" href="#" (click)="doGoToSettings()">
+      <i class="hvst-user-2"></i>
+      {{user.first_name}}'s Settings
+    </a>
+    <a class="item item-icon-left" href="#" (click)="doLogUserOut()">
+      <i class="hvst-power"></i>Log Out
+    </a>
+  </div>
+</div>

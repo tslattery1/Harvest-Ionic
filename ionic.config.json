@@ -1,0 +1,15 @@
+{
+  "name": "NewApp",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  },
+  "proxies": [
+    {
+      "path": "/pylon",
+      "proxyUrl": "https://api.harvest.us/",
+      "proxyNoAgent": true
+    }
+  ]
+}

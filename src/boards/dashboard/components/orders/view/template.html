@@ -1,0 +1,150 @@
+<in-progress *ngIf="!isReady"></in-progress>
+
+<ng-container *ngIf="isReady">
+  <div class="row text-left">
+    <div class="col">
+      <div class="col page-header">
+        <i class="icon hvst-cart-4"></i>
+        <h1>Order Confirmed: just now</h1>
+      </div>
+    </div>
+    <div class="col">
+      <div class="actions actions_right">
+        <button ion-button outline color="calm">
+          <i class="icon hvst-clipboard-plus"></i>
+          Edit Order
+        </button>
+
+        <button ion-button outline color="assertive">
+          <i class="icon ion-trash-b"></i>
+          Cancel Order
+        </button>
+      </div>
+
+      <!--<div class="edit-order-txt" ng-if="vm.orderSvc.statusCodeForOrder(vm.displayedOrder) == 0"><i class="icon ion-ios-information-outline"></i>This order can be changed for the next .</div>-->
+    </div>
+  </div>
+  <!-- END UPPER TITLE AND BUTTONS -->
+  <!--<flash-message></flash-message>-->
+  <div class="row order-details">
+    <div class="col">
+      <div class="row top-reporters">
+        <div class="col col-40 order-date text-left">
+          <span class="order-status status-1">Status: <delivery-status [status]="order['status']"></delivery-status></span>
+          <div class="last-updated">Last Updated: -</div>
+        </div>
+        <div class="col col-offset-20 col-40 payment-method text-right">
+          <span class="not-invoiced"><i class="icon hvst-payment-1"></i>
+            Payment Method: <i class="icon ion-record status-1"></i>
+            -
+          </span>
+        </div>
+      </div>
+      <div class="row table-container">
+        <table class="triple-data-table">
+          <thead>
+          <tr>
+            <th>ORDER INFO</th>
+            <th>NETWORK MEMBER</th>
+            <th>DELIVERY INSTRUCTIONS</th>
+          </tr>
+          </thead>
+          <tr>
+            <td>
+              <div class="table-body">
+                <div class="t-row">
+                  <div class="t-col">Order ID:</div>
+                  <div class="t-col">{{ order.id }}</div>
+                </div>
+                <div class="t-row">
+                  <div class="t-col">Order Submitter:</div>
+                  <div class="t-col">-</div>
+                </div>
+                <div class="t-row">
+                  <div class="t-col">Item Qty:</div>
+                  <div class="t-col">{{ order.order_metadata.item_qty_total }}</div>
+                </div>
+                <div class="t-row">
+                  <div class="t-col">Line Items:</div>
+                  <div class="t-col">{{ order.order_metadata.item_skus_total }}</div>
+                </div>
+                <div class="t-row">
+                  <div class="t-col">Total:</div>
+                  <div class="t-col">{{ order['price'] | currency }}</div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="table-body">
+                <div class="t-row">
+                  <div class="t-col">Member:</div>
+                  <div class="t-col">{{ order['location_name'] }}</div>
+                </div>
+                <div class="t-row">
+                  <div class="t-col">Address:</div>
+                  <div class="t-col">
+                    <p>{{ order.order_metadata.delivery_info.address_1 }}</p>
+                    <p ng-if="vm.userSvc.locationData.address_2">{{ order.order_metadata.delivery_info.address_2 }}</p>
+                    <p>{{ order.order_metadata.delivery_info.city }}, {{ order.order_metadata.delivery_info.state_abbr }} {{ order.order_metadata.delivery_info.zip }}</p>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="table-body">
+                <div class="t-row">
+                  <div class="t-col">Deliveries:</div>
+                  <div class="t-col">{{ order.order_metadata.delivery_info.deliveries_count }}</div>
+                </div>
+                <div class="t-row" *ngFor="let instruction of order.order_metadata.delivery_info.special_instructions">
+                  <div class="t-col">{{ instruction.key }}:</div>
+                  <div class="t-col">{{ instruction.value }}</div>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-100">
+          <h4>Submitted Order</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col col-100">
+          <ordered-items-list [orderId]="order.id"></ordered-items-list>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-70 pending-deliveries">
+      <h4>DELIVERIES</h4>
+      <delivery-list [orderId]="order['id']"></delivery-list>
+    </div>
+    <div class="col col-30">
+      <div class="order-total-container table-body">
+        <div class="t-row">
+          <div class="t-col">Handling Fees:</div>
+          <div class="t-col">{{0.00 | currency}}</div>
+        </div>
+        <div class="t-row">
+          <div class="t-col">Standard Price:</div>
+          <div class="t-col">{{3020.27 | currency}}*</div>
+        </div>
+        <div class="t-row savings hr-space">
+          <div class="t-col">Network Savings:</div>
+          <div class="t-col">({{470.60 | currency}})</div>
+        </div>
+        <div class="t-row hr">
+          <div class="t-col"></div>
+          <div class="t-col"></div>
+        </div>
+        <div class="t-row grand-total">
+          <div class="t-col">Grand Total:</div>
+          <div class="t-col">{{2549.61 | currency}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

@@ -1,0 +1,239 @@
+cart-preview {
+  display: block;
+  padding: 10px 20px;
+
+  .loading {
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  ion-content.has-header, ion-content.has-subheader{
+    top: 0 !important; // hack to fix the spacing issue due to ion-content thinking there's a header that needs to be spaced.
+  }
+
+  ion-list {
+    min-height: 70vh;
+    background: #fff;
+  }
+
+  &.animate {
+    -webkit-transition: 0.4s all ease-in-out;
+    transition: 0.4s all ease-in-out;
+  }
+
+  &.left {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+  &.right {
+    right: 0;
+    top: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, 0, 0);
+  }
+
+  .item-count{
+    font-size: 1.6em;
+    color: $harvest-grey-4d4d;
+    margin: 20px 0 32px 0;
+    text-align: center;
+  }
+
+  i.hvst-cart-3{
+    margin-right: 10px;
+    position: relative;
+    font-size: 0.9em;
+  }
+
+  .button.hvst-cart-5{
+    margin: 20px;
+  }
+
+
+  ion-item.cart-item{
+    overflow: hidden;
+    border-bottom: 1px solid $harvest_light_grey !important;
+    position: relative;
+    top: 1px; // this is a android tablet fix, it positions the bottom border on the pixel line
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: .2s max-height ease-in-out;
+    transition: .2s max-height ease-in-out;
+
+    .item-content{
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    &.menu-opened{
+      max-height: 1000px;
+      margin-bottom: -1px !important; // this is a android tablet fix, it positions the bottom border on the pixel line
+    }
+
+    &.ng-leave {
+      -webkit-transition: 0s all ease-in;
+      transition: 0s all ease-in;
+    }
+
+    &.zero-transition{
+      -webkit-transition: 0s all ease-in;
+      transition: 0s all ease-in;
+    }
+
+    .item-info {
+      display: flex;
+      align-items: top;
+      -webkit-transition: .2s opacity ease-out;
+      transition: .2s opacity ease-out;
+
+      &.active{
+        opacity: 0.3 !important;
+      }
+
+    }
+
+    div{
+      text-align: left;
+    }
+
+    .col-60 h3{
+      margin-top: 12px;
+      font-size: 1.2em;
+      margin-bottom: 0px;
+      font-family: "ProximaNova-SemiBold";
+      color: $harvest-grey-4d4d;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .col-20 h3{
+      margin-top: 24px;
+      line-height: 1.5;
+      font-size: 1.2em;
+      font-family: "ProximaNova-SemiBold";
+      color: $harvest-grey-4d4d;
+    }
+
+    .large-price h3{
+      font-size: 26px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    span{
+      font-family: "ProximaNova-Light";
+      font-size: .9em;
+      color: $harvest-grey-4d4d;
+      display: block;
+      margin: 5px 0;
+    }
+
+    div.options-txt{
+      font-family: "ProximaNova-Light";
+      color: $harvest-light_text;
+      display: block;
+      margin: 0 0 5px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    span b{
+      text-decoration: none;
+    }
+
+    img{
+      margin-top: 15px;
+    }
+  }
+
+  .close-button{
+    display: block;
+    width: 98px;
+    height: 98px;
+    border-radius: 49px;
+    background-color: map_get($colors, "stable");
+    position: absolute;
+    left: 0px;
+    top: 60px;
+    z-index: 101; // Fix unreliable ng-click / on-tap event
+
+    i.ion-arrow-left-b{
+      opacity: 1;
+      color: $harvest_light_text;
+      font-size: 27px;
+      position: relative;
+      top: 36px;
+      left: 16px;
+
+      &:before{
+        // These properties animate the rotation of the arrow upon right menu opening, i'm disabling this
+        // for now to boost animation performance of the right menu open.
+        //-webkit-transition: transform .33s ease-in-out;
+        //transition: transform .33s ease-in-out;
+      }
+    }
+  }
+
+
+  .cart-count-container{
+    position: absolute;
+    left: 35px;
+    top: 72px;
+    text-align: center;
+    color: $harvest_light_text;
+    opacity: 0; // When the cart is closed the opacity is transitioned to 1 at line 649
+    -webkit-transition: .2s opacity ease-in-out;
+    transition: .2s opacity ease-in-out;
+    z-index: 103;
+
+    i:before{
+      font-size: 40px;
+      position: relative;
+      left: -2px;
+    }
+
+    .cart-count{
+      height: 28px;
+      line-height: 28px;
+      margin: 0 auto;
+      margin-top: 5px;
+      font-size: 22px;
+      font-family: "ProximaNova-SemiBold";
+      color: white;
+      border-radius: 14px;
+      background-color: map_get($colors, "balanced");
+    }
+
+    .cart-count.cart-empty{
+      background-color: $harvest-light_grey;
+    }
+  }
+
+  ion-list div.list{
+    opacity: 1;
+    -webkit-transition: .2s all ease-in-out .2s;
+    transition: .2s all ease-in-out .2s;
+  }
+
+  div.item-options{
+    min-width: 100px;
+    text-align: center;
+
+    ion-option-button.button-item-delete{
+      min-width: 100px;
+      background-color: map_get($colors, "assertive");
+
+      i{
+        width: 100%;
+
+        &:before{
+          color: white;
+          font-size: 42px;
+        }
+      }
+
+    }
+  }
+}

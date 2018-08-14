@@ -1,0 +1,24 @@
+invoice-list {
+  .filters {
+    height: 100%;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-flow: column;
+    height: 70vh;
+    align-items: flex-start;
+
+    .filters {
+      display: flex;
+      flex-flow: column;
+      align-items: flex-start;
+
+      .options {
+        &_bottom {
+          margin-top: auto;
+        }
+      }
+    }
+  }
+}

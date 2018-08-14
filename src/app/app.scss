@@ -1,0 +1,358 @@
+.content {
+  &.full {
+    & > .scroll-content {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
+
+  &.no-scroll {
+    & > .scroll-content {
+      overflow: hidden;
+    }
+  }
+}
+
+// Create .col-1 through .col-99 styles so I can create columns with 1% precision..*/
+@for $i from 1 through 99{
+  .col-#{$i} {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 #{$i * 1%};
+    -moz-box-flex: 0;
+    -moz-flex: 0 0 #{$i * 1%};
+    -ms-flex: 0 0 #{$i * 1%};
+    flex: 0 0 #{$i * 1%};
+    max-width: #{$i * 1%};
+  }
+}
+
+.col-center {
+  align-self: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// ============== END _VARIABLES.SCSS OVERIDES ==================================================================
+
+.icon {
+  text-align: center;
+
+  &:after {
+    line-height: 1;
+  }
+
+  &_small {
+    font-size: .7em;
+  }
+
+  &_calm {
+    color: map_get($colors, "calm");
+    border-color: map_get($colors, "calm");
+  }
+
+  &_accent {
+    color: map_get($colors, "accent");
+    border-color: map_get($colors, "accent");
+  }
+
+  &_bordered {
+    border: 1px solid;
+  }
+}
+
+.i-space-right{
+  &:before{
+    margin-right: 0.5em;
+  }
+}
+
+.i-space-left{
+  &:before{
+    margin-left: 0.5em;
+  }
+}
+
+.overflow-dot{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.vert-center{
+  margin: auto 0;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.bold{
+  font-family: ProximaNova-SemiBold;
+}
+
+.obvious-link{
+  color: $harvest_obvious_link;
+}
+
+.underlined{
+  text-decoration: underline;
+}
+
+.center-align, .align-center{
+  text-align: center !important;
+}
+
+.right-align, .align-right{
+  text-align: right !important;
+}
+
+.left-align, .align-left{
+  text-align: left !important;
+}
+
+.display-none{
+  display: none !important;
+}
+
+.no-border{
+  border-color: transparent !important;
+  border-size: 0px !important;
+  border: none !important;
+}
+
+.color-white{
+  color: white !important;
+}
+
+
+
+
+// ==============================================================================================================
+// ============== OVERRIDES FOR _BUTTON.SCSS =======================================================================
+// ==============================================================================================================
+
+.button {
+  position: relative;
+  font-weight: normal;
+  font-family: ProximaNova-SemiBold;
+  box-shadow: none !important;
+
+  &.tap-animation-disable{
+    opacity: 1 !important;
+  }
+
+  &--overlay {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.5);
+    z-index: 10;
+  }
+
+  &_left {
+    .button-inner {
+      justify-content: flex-start;
+    }
+  }
+
+  .button-inner {
+    justify-content: flex-start;
+  }
+
+  .icon {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+  .badge {
+    margin-left: auto;
+    background: transparent;
+    border: 1px solid;
+    border-radius: 3px;
+    color: inherit;
+
+    &[color="light"] {
+      color: map_get($colors, "light");
+    }
+
+    &[color="dark"] {
+      color: map_get($colors, "dark");
+    }
+
+    &[color="stable-dark"] {
+      color: map_get($colors, "stable-dark");
+    }
+  }
+
+  &[icon-left] {
+    .icon {
+      margin-right: 10px;
+    }
+  }
+
+  &[icon-right] {
+    .icon {
+      margin-left: 10px;
+    }
+  }
+
+  &.button-start-order{
+    //@include button-style($button-start-order-bg, $button-start-order-border, $button-start-order-active-bg, $button-start-order-active-border, $button-start-order-text);
+    //@include button-clear($button-start-order-border);
+    //@include button-outline($button-start-order-border);
+    height: 82px;
+    position: relative;
+    top: -20px;
+    &:before{
+      font-size: 40px !important;
+      margin-right: 0.5em;
+      //line-height: 0.33 !important;  // Change this if icons behave strangely, this is to make the icons centered vertically
+    }
+
+    &.button-large{
+      font-size: 28pt;
+    }
+
+  }
+}
+
+.button-modify-order{
+  height: 82px;
+  max-height: 82px !important;
+  padding: 0 28px !important;
+  position: relative;
+  top: -20px;
+  font-size: 24pt !important;
+  color: white !important;
+  border: 3px solid white !important;
+  font-family: ProximaNova-Regular;
+
+  &:before{
+    font-size: 40px !important;
+    margin-right: 0.5em;
+    //line-height: 0.33 !important;  // Change this if icons behave strangely, this is to make the icons centered vertically
+  }
+
+
+}
+
+
+.button-larger {
+  padding: 0 $button-larger-padding !important;
+  min-width: ($button-larger-padding * 3) + $button-larger-font-size !important;
+  min-height: $button-larger-height + 5 !important;
+  font-size: $button-larger-font-size !important;
+  line-height: $button-larger-height - $button-border-width !important;
+  border-radius: $button-border-radius*2 !important;
+  border: none !important;
+
+  .icon:before,
+  &.icon:before,
+  &.icon-left:before,
+  &.icon-right:before {
+    padding-bottom: ($button-border-width * 2);
+    font-size: $button-larger-icon-size;
+    line-height: $button-larger-height - ($button-border-width * 2) - 1;
+  }
+}
+
+.button-wide{
+  padding: 0 $button-larger-padding*2 !important;
+}
+
+.button-hero {
+  padding: $button-hero-padding ($button-hero-padding * 3) !important;
+  font-size: $button-hero-font-size !important;
+  line-height: $button-hero-height - $button-border-width !important;
+  border-radius: $button-border-radius !important;
+  border: none !important;
+
+  .icon:before,
+  &.icon:before,
+  &.icon-left:before,
+  &.icon-right:before {
+    padding-bottom: ($button-border-width * 2);
+    font-size: $button-hero-icon-size;
+    line-height: $button-hero-height - ($button-border-width * 2) - 1;
+  }
+}
+
+
+// ============== END OVERRIDES FOR _BUTTON.SCSS ===================================================================
+
+.tbd {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  &--overview {
+    display: flex;
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    filter: blur(5px);
+    z-index: -1;
+
+    img {
+      display: block;
+      margin: auto;
+      height: 95%;
+      width: 95%;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      background: rgba(255,255,255,.5);
+    }
+  }
+
+  &--content {
+    display: block;
+    text-align: center;
+    padding: 20px 120px;
+
+    h1 {
+      font-size: 3em;
+      color: map_get($colors, "dark");
+      font-family: ProximaNova-SemiBold;
+      font-weight: 500;
+      margin: 20px 0;
+    }
+
+    h2 {
+      font-size: 2.5em;
+      color: map_get($colors, "stable-dark");
+      font-family: ProximaNova-Light, serif;
+      font-weight: 400;
+      margin: 20px 0;
+    }
+  }
+}
+
+.m {
+  &l {
+    &_20 {
+      margin-left: 20px !important;
+    }
+  }
+}

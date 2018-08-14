@@ -1,0 +1,15 @@
+order-status {
+  .orderStatus {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    i {
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin-right: 10px;
+      border-radius: 50px;
+    }
+  }
+}

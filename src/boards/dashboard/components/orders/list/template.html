@@ -1,0 +1,223 @@
+<div class="row">
+  <div class="col">
+    <div ncy-breadcrumb></div>
+  </div>
+</div>
+<!-- END BREADCRUMBS -->
+
+<div class="row text-left">
+  <div class="col-15">
+    <div class="page-header">
+      <i class="icon hvst-cart-7"></i>
+      <h1>Orders</h1>
+    </div>
+  </div>
+
+  <div class="col-85 listTableView ordersList">
+    <div class="row">
+      <div class="col"><span class="listTableTitle">{{ getViewTitle() }}</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="row text-left">
+  <div class="col-15 listSidebar workspace--sidebar">
+    <ion-list class="options" no-border no-padding>
+      <button ion-button [outline]="!isFilterActive('active')"
+              icon-left color="calm"
+              (click)="setFilter('active')"
+      >
+        <i class="icon hvst-sun"></i>
+        Active Orders
+      </button>
+
+      <button ion-button [outline]="!isFilterActive('all')"
+              icon-left color="calm"
+              (click)="setFilter('all')"
+      >
+        <i class="icon hvst-cart-7"></i>
+        All Orders
+      </button>
+    </ion-list>
+  </div>
+
+  <div class="col-85 listTableView ordersList workspace--content workspace--sidebar_padded">
+
+    <div class="row table--controls">
+      <div class="col-50">
+        <div class="date-picker">
+          <label class="item-input-wrapper">
+            <input daterangepicker [options]="datePickerOptions" (selected)="onDateSelect" class="form-control date-picker orderList input" type="text">
+            <i class="icon hvst-calendar placeholder-icon"></i>
+          </label>
+        </div>
+      </div>
+      <div class="col-50">
+        <div class="table-search-cont">
+          <label class="item item-input table-search">
+            <input type="text" ng-model="vm.filter.query" class="table-search-input" ng-class="{no_search_icon: vm.filter.query != ''}" placeholder="&nbsp;Search Orders">
+            <i class="icon hvst-search-2"></i>
+            <i class="icon ion-close-circled table-search-clear-icon" on-tap="vm.clearSearchQuery();" ng-class="{visible: vm.filter.query != ''}"></i>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="table table_striped">
+          <p-table [columns]="cols" [value]="slice" [responsive]="true" dataKey="id" #table>
+            <ng-template pTemplate="header" let-columns>
+              <tr>
+                <th class="table--col table--col_primary"></th>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                  {{col.header}}
+                  <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+                <th class="table--col table--col_primary"></th>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+              <tr class="order" [ngClass]="getRowClass(rowData)">
+                <td class="table--col table--col_primary">
+                  <a href="#" [pRowToggler]="rowData">
+                    <ion-icon class="icon_bordered icon_small"
+                              [name]="(!expanded) ? 'add' : 'remove'"
+                              [color]="(!expanded) ? 'calm' : 'balanced'"
+                    ></ion-icon>
+                  </a>
+                </td>
+
+                <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                  <ng-container *ngSwitchCase="'order_token'">
+                    {{ rowData['order_token'] }}
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'status'">
+                    <delivery-status [status]="rowData['status']"></delivery-status>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'created_by'">
+                    -
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'status'">
+                    <order-status [status]="rowData['status']"></order-status>
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'last_update_at'">
+                    -
+                  </ng-container>
+
+                  <ng-container *ngSwitchCase="'price'">
+                    {{ rowData['price'] | currency:"USD":"symbol" }}
+                  </ng-container>
+
+                  <ng-template ngSwitchDefault>
+                    -
+                  </ng-template>
+                </td>
+
+                <td class="table--col table--col_primary">
+                  <div class="actions">
+                    <button ion-button outline color="stable-dark" ng-if="order.delivery_ids.length >= 1" [pRowToggler]="rowData">Deliveries</button>
+                    <button ion-button outline color="stable-dark" (click)="doViewOrderClick(rowData['id'])">View Order</button>
+                  </div>
+                </td>
+              </tr>
+            </ng-template>
+
+            <ng-template pTemplate="rowexpansion" let-rowData let-columns="cols">
+              <tr>
+                <td [attr.colspan]="cols.length + 2">
+                  <delivery-map [orderId]="rowData['id']"></delivery-map>
+                </td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+
+    <!--<flash-message></flash-message>-->
+    <!--<div class="row">-->
+      <!--<div class="col">-->
+        <!--<div class="table-container">-->
+          <!--<table st-table="orders.displayOrderList" st-safe-src="orders.orderList" class="hvst-table table-striped">-->
+            <!--<thead class="orders-thead-2">-->
+            <!--<tr>-->
+              <!--<th class="header icon-checkmark">&nbsp;</th>-->
+              <!--<th class="header" st-sort="submittedAt" st-sort-default="reverse" st-skip-natural="true"><div class="hvst-table-header left-align">Order</div></th>-->
+              <!--<th class="header" st-sort="data.item_count" st-skip-natural="true"><div class="hvst-table-header left-align">Items</div></th>-->
+              <!--<th class="header" st-sort=""><div class="hvst-table-header left-align">Created by</div></th>-->
+              <!--<th class="header" st-sort="lastUpdated" st-skip-natural="true"><div class="hvst-table-header">Last Updated</div></th>-->
+              <!--<th class="header" st-sort="vm.filter.sorters.status" st-skip-natural="true"><div class="hvst-table-header">Status</div></th>-->
+              <!--<th class="header" st-sort="data.priceTotal" st-skip-natural="true"><div class="hvst-table-header">Total</div></th>-->
+              <!--<th class="header"><div class="hvst-table-header">&lt;!&ndash; Empty for Buttons &ndash;&gt;</div></th>-->
+            <!--</tr>-->
+            <!--</thead>-->
+            <!--<tr *ngFor="let order of orders | async" class="orders-tbl orders-tbl-2 status-1">-->
+              <!--<td class="icon-checkmark center-align" on-tap="orders.toggleSelectedRowFor(order)">-->
+                <!--&lt;!&ndash;<table-row-checkbox ng-model="orders.selectedOrderRows" row-id="order.id" class="orderList status-stub_cell">&ndash;&gt;-->
+                <!--&lt;!&ndash;</table-row-checkbox>&ndash;&gt;-->
+                <!--<i class="icon"></i>-->
+              <!--</td>-->
+              <!--<td class="first-column" on-tap="orders.goToOrder(order.id)">-->
+                                        <!--<span class="orderTitle status-">-->
+                                            <!--<span class="arriving-today" ng-if="orders.deliveriesArrivingTodayFor(order) && !orders.todayDeliveriesComplete()">Out For Delivery</span>-->
+                                            <!--stub_cell</span>-->
+              <!--</td>-->
+              <!--<td class="left-align bold item-count">stub_cell items</td>-->
+              <!--<td class="creator overflow-dot">stub_cell</td>-->
+              <!--<td class="status"><i class="icon ion-record"></i>123</td>-->
+              <!--<td class="lastUpdated">stub_cell</td>-->
+              <!--<td>stub_cell</td>-->
+              <!--<td class="button-td">-->
+                <!--&lt;!&ndash;<button class="button button-light vert-center hvstTableButton-light" ng-if="order.delivery_ids.length >= 1">Deliveries</button>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button class="button button-light vert-center hvstTableButton-light" on-tap="orders.goToOrder(order.id)">View Order</button>&ndash;&gt;-->
+              <!--</td>-->
+            <!--</tr>-->
+            <!--<tr class="order-deliveries-drawer order-is-opened" ng-show="orders.selectedOrderRows[order.id]">-->
+              <!--<td colspan='8'>-->
+                <!--<div class="deliveriesContainer">-->
+                  <!--&lt;!&ndash;<div class="delivery" ng-repeat="delivery in orders.deliveriesForOrder(order) track by delivery.id">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="parentLine row">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="col-50"></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="col-50"></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="status-dot">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="hollow"></span>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="triangle"></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="multi-use-blocker"></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="multi-use-blocker2"></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="line-extension"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="title-reporter row">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="title col-50"><i class="icon"></i>stub_cell</div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="arrival-status col-50">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="arrival" ng-class="{'smaller-font':orders.deliveryArrivalTxtFor(delivery).length > 15}">stub_cell</span>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<span class="resolution-time" ng-if="[4, 5, '4', '5'].indexOf(orders.deliveryStatusCode(delivery)) > -1">Est Resolution: stub_cell</span>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="info row">&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="delivery-info col-66">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="items-in-shipment"><span class="bold">stub_cell items</span> in shipment</div>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="supplier overflow-dot">Supplier: <span class="bold">stub_cell</span></div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                      <!--&lt;!&ndash;<div class="action col-33">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button class="button button-large button-outline button-stable" on-tap="orders.goToDelivery(delivery)">View <i class="icon ion-arrow-right-c"></i></button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<button class="button button-large button-calm" on-tap="orders.goToDelivery(delivery)">Check <i class="icon hvst-clipboard-check"></i></button>&ndash;&gt;-->
+                      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+              <!--</td>-->
+            <!--</tr>-->
+            <!--<tr ng-repeat-end style="display: none;">this is to allow an uneven amount of TR's so the zebra striping works</tr>-->
+          <!--</table>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>

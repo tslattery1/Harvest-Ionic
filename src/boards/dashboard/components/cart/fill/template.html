@@ -1,0 +1,17 @@
+<div class="step">
+  <div class="step--label">
+    <i class="icon hvst-cart-1"></i>
+    Step 2
+  </div>
+
+  <div class="step--title">Add Items To Order</div>
+
+  <div class="step--actions">
+    <button ion-button icon-left color="energized" (click)="doGoToCheckout()">
+      <i class="icon hvst-cart-3"></i>
+      Proceed To Checkout
+    </button>
+  </div>
+</div>
+
+<item-catalog [selectable]="true" (onSelect)="doOnSelect()"></item-catalog>

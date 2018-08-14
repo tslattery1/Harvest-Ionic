@@ -1,0 +1,105 @@
+<div class="row">
+  <div class="col">
+    <div ncy-breadcrumb></div>
+  </div>
+</div>
+<!-- END BREADCRUMBS -->
+<div class="row text-left workspace--header">
+  <div class="col page-header delivery-details">
+    <i class="icon hvst-list"></i>
+    <h1>My Shopping Lists</h1>
+  </div>
+  <div class="col col-25 header-checkout-button">
+  </div>
+</div>
+<!-- END STEP SUBHEADER -->
+
+<div class="row">
+  <div class="col col-15 text-left shopping-list-categories">
+    <ion-list class="options" no-border no-padding>
+      <button ion-button
+              icon-right
+              class="button_left"
+              [clear]="!isFilterActive(category.id)"
+              [color]="isFilterActive(category.id) ? 'calm' : 'stable-dark'"
+              *ngFor="let category of categories"
+              (click)="setActiveFilter(category)"
+      >
+        {{ category.name }}
+        <ion-badge outline color="light" *ngIf="isFilterActive(category.id)">{{ itemCount }}</ion-badge>
+      </button>
+    </ion-list>
+
+    <ion-list no-border no-padding>
+        <button ion-button
+                outline
+                color="calm"
+                disabled
+        >
+          Create list
+        </button>
+      </ion-list>
+  </div>
+
+  <div class="col col-85">
+    <div class="row table-info">
+      <div class="col-80">
+        <span class="italic" [innerHTML]="getViewTitle()"></span>
+          <!--<ng-pluralize count="slc.displayedItems.length"-->
+                                               <!--when="{-->
+                            <!--'0': 'No Items',-->
+                            <!--'one': '1 Item',-->
+                             <!--'other': '{} Items'-->
+                            <!--}"></ng-pluralize></span>stub_cell</b></h2>-->
+      </div>
+      <div class="col-20 list-settings-btn-container">
+        <button ion-button outline color="stable" [disabled]="true">
+          <i class="icon hvst-settings"></i>List Settings
+        </button>
+      </div>
+    </div>
+    <!--<flash-message></flash-message>-->
+    <div class="table table_striped">
+      <p-table [columns]="cols" [value]="items | async" [responsive]="true" #table>
+        <ng-template pTemplate="header" let-columns>
+          <tr>
+            <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-columns="columns">
+          <tr>
+            <td *ngFor="let col of columns" [ngSwitch]="col.field">
+              <ng-container *ngSwitchCase="'name'">
+                <div class="item">
+                  <div class="item--avatar">
+                    <img [src]="rowData['image_url']">
+                  </div>
+
+                  <div class="item--title">
+                    {{ rowData['name'] }}
+                  </div>
+                </div>
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'increment_unit'">
+                  {{ rowData['increment_scalar'] }} {{ rowData['increment_unit'] }}
+              </ng-container>
+
+              <ng-container *ngSwitchCase="'live_price'">
+                {{ rowData['live_price']['price'] }} / {{ rowData['increment_unit'] }}
+              </ng-container>
+
+              <ng-template ngSwitchDefault>
+                {{ rowData[col.field] }}
+              </ng-template>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

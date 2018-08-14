@@ -1,0 +1,76 @@
+<div class="step step_{{ step }}">
+  <dynamic-title [title]="getTitle()" icon="icon_{{step}}" class="step--title" [color]="getColor()"></dynamic-title>
+
+  <div class="step--content" [ngSwitch]="step" [@step]="step">
+    <ng-container *ngSwitchCase="'method'">
+      <p>
+        <b>{{ user.first_name }}</b>, please select one of the two options below
+        to receive a verification code for your PIN reset.
+      </p>
+
+      <p>
+        This is to verify your identity. Your phone number on file is <b>***-***-3556</b>
+      </p>
+
+      <div class="actions">
+        <button ion-button color="calm" icon-left block (click)="doSwitchStep('approve')">
+          <ion-icon name="ios-mail-outline"></ion-icon>
+          Send Verification Code by SMS
+        </button>
+
+        <button ion-button color="calm" icon-left block (click)="doSwitchStep('approve')">
+          <ion-icon name="call"></ion-icon>
+          Call with the Verification Code
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'approve'">
+      <p>This is to verify your identity. Your phone number on file is <b>***-***-3556</b></p>
+
+      <input type="text">
+
+      <div class="actions">
+        <button ion-button
+                outline
+                color="calm"
+                disabled
+        >
+          Send Again
+        </button>
+
+        <button ion-button color="balanced"
+                (click)="doSwitchStep('new')"
+        >
+          Submit
+        </button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'new'">
+      <pinpad color="light"
+            [(pincode)]="pincode.value"
+            (pincodeChange)="doPinEnter()"
+            [disabled]="state.isInProgress || state.isPinPadLocked">
+      </pinpad>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'confirm'">
+      <pinpad color="light"
+              [(pincode)]="pincode.confirm"
+              (pincodeChange)="doPinConfirmEnter()"
+              [disabled]="state.isInProgress || state.isPinPadLocked">
+      </pinpad>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'success'">
+      <div class="success">
+        <div class="success--icon">
+          <i class="icon hvst-lock-2"></i>
+        </div>
+
+        Pin Successfully Reset
+      </div>
+    </ng-container>
+  </div>
+</div>

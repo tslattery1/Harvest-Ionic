@@ -1,0 +1,75 @@
+<in-progress *ngIf="!isReady"></in-progress>
+
+<ng-container *ngIf="isReady && !!order">
+    <div class="todayOrderContainer">
+        <h4>LATEST ORDER</h4>
+
+        <div class="row">
+            <div class="col active-order status-active">
+                <div class="title">
+                    {{ {} | moment:'dddd, MM/DD/YYYY' }}
+                </div>
+                <div class="detailsContainer row">
+                    <div class="col col-40">
+                        <div class="order">
+                            <span class="label">Order ID:</span>
+                            {{ order.id }}
+                        </div>
+                        <div class="itemCount">
+                            <span class="label">Item Count:</span> 
+                            -
+                        </div>
+                    </div>
+                    <div class="col col-60">
+                        <div class="status">
+                            <span class="label">Status:</span>
+                            {{ order.status.name }}
+                        </div>
+                        <div class="placedBy">
+                            <span class="label">Placed by:</span>
+                            -
+                        </div>
+                    </div>
+                </div>
+
+                <div class="statusContainer">
+                    <div class="row">
+                        <div class="col-60">
+                            <span class="updatedLabel">Status Last Updated:</span>
+                            <span class="updatedTime">
+                                <i class="icon hvst-clock-small i-space-right"></i> Just now
+                            </span>
+                        </div>
+
+                        <div class="col-40">
+                            <button ion-button outline color="calm" (click)="doSwitchPage('order', order.id)">Details</button>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="isReady && !order">
+    <div class="newOrderContainer">
+        <div class="row">
+            <div class="col">
+            <h4>PLACE A NEW ORDER</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button ion-button color="energized" class="continueBtn button-hero" *ngIf="cart" (click)="doSwitchPage('continue-cart')">Continue Today's Order</button>
+                <button ion-button color="energized" class="startBtn button-hero" *ngIf="!cart" (click)="doSwitchPage('start-cart')">Start Today's Order</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+            <h3>Order by 2:00pm for delivery tomorrow.</h3>
+            </div>
+        </div>
+    </div>
+</ng-container>

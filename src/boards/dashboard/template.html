@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <current-user></current-user>
+
+      <button ion-button icon-only clear color="light" class="ml_20">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-buttons center>
+      <button ion-button icon-only clear (click)="doGoHome()">
+        <img src="assets/img/logo.svg" class="logo" />
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <help-button></help-button>
+    </ion-buttons>
+
+    <button icon-only ion-button clear class="cart-button" menuToggle="right" end>
+      <img src="assets/img/cart-button.svg">
+      <span class="cart-count-number">2</span>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-split-pane class="drawer--container">
+  <ion-menu [content]="content" side="left" type="push" class="drawer drawer_left" id="left">
+    <ion-content>
+
+      <ion-list class="list list_top">
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.orders')">
+          <i class="icon hvst-cart-7"></i>
+          orders
+        </button>
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.lists')">
+          <i class="icon hvst-clipboard-1"></i>
+          my lists
+        </button>
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.catalog')">
+          <i class="icon hvst-fork-knife"></i>
+          products
+        </button>
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.invoices')">
+          <i class="icon hvst-invoice_menu"></i>
+          invoices
+        </button>
+      </ion-list>
+
+      <ion-list class="list list_bottom">
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.intelligence')">
+          <i class="icon hvst-graphs"></i>
+          intelligence
+        </button>
+        <button ion-button clear icon-only color="dark" (click)="doNavigateTo('main.settings')">
+          <i class="icon hvst-settings"></i>
+          settings
+        </button>
+      </ion-list>
+
+    </ion-content>
+  </ion-menu>
+
+  <ion-content #content class="workspace" [@change]="getCurrentState()">
+    <ng-template #container></ng-template>
+  </ion-content>
+</ion-split-pane>
+
+<ion-menu [content]="content" side="right" type="overlay" class="drawer drawer_right">
+  <ion-content>
+    <cart-preview></cart-preview>
+  </ion-content>
+</ion-menu>

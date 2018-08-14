@@ -1,0 +1,10 @@
+<ul class="wizard--navigation">
+  <li *ngFor="let step of steps" [ngClass]="{'active': isStepActive(step), 'completed': isStepCompleted(step)}">
+    {{ step.title }}
+    <i class="icon" [ngClass]="{'hvst-checkmark-1': isStepCompleted(step)}"></i>
+  </li>
+</ul>
+
+<div class="wizard--container" [@change]="getComponentState()">
+  <ng-container #container></ng-container>
+</div>

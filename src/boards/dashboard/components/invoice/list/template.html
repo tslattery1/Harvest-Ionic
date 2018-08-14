@@ -1,0 +1,135 @@
+<div class="row">
+  <div class="col">
+    <div ncy-breadcrumb></div>
+  </div>
+</div>
+
+<div class="row workspace--header">
+  <div class="col-15">
+    <div class="page-header">
+      <i class="icon hvst-invoice_menu"></i>
+      <h1>Invoices</h1>
+    </div>
+  </div>
+
+  <div class="col-85 listTableView invoicesList">
+    <div class="row">
+      <div class="col">
+        <span class="listTableTitle margin-left-20">
+          {{ screenTitle() }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END BREADCRUMBS -->
+<div class="row text-left">
+  <div class="col-15 sidebar">
+
+    <div class="filters">
+      <ion-list class="options" no-border no-padding>
+        <button ion-button [outline]="!isFilterActive('active')"
+                icon-left color="calm"
+                (click)="setFilter('active')"
+        >
+          <i class="icon hvst-sun"></i>
+          Active invoices
+        </button>
+
+        <button ion-button [outline]="!isFilterActive('payed')"
+                icon-left color="calm"
+                (click)="setFilter('payed')"
+        >
+          <i class="icon hvst-cart-7"></i>
+          Payed invoices
+        </button>
+      </ion-list>
+
+      <ion-list class="options options_bottom" no-border no-padding>
+        <button ion-button outline color="stable" icon-left ng-disabled="invoices.isExportDisabled() < 1">
+          <i class="icon hvst-documents"></i>
+          Export Selected
+        </button>
+
+        <button ion-button outline color="stable">
+          <i class="icon hvst-coins"></i>
+          Sync Accounting
+        </button>
+      </ion-list>
+    </div>
+  </div>
+
+  <div class="col-85 listTableView invoicesList">
+
+    <div class="row table--controls">
+      <div class="col-50">
+        <label class="item-input-wrapper">
+          <input date-range-picker class="form-control date-picker invoiceList input" type="text" ng-model="vm.datePicker.date" placeholder="" ng-readonly="true" options="vm.datePicker.options">
+          <i class="icon hvst-calendar placeholder-icon"></i>
+        </label>
+      </div>
+
+      <div class="col-50">
+        <label class="item item-input table-search">
+          <input type="text" ng-model="vm.filter.query" class="table-search-input" ng-class="{no_search_icon: vm.filter.query != ''}" placeholder="&nbsp;Search Invoices">
+          <i class="icon hvst-search-2"></i>
+          <i class="icon ion-close-circled table-search-clear-icon" clear-and-blur-on-tap="vm.clearSearchQuery();" ng-class="{visible: vm.filter.query != ''}"></i>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="table table_striped table_condensed">
+        <p-table [columns]="cols" [value]="slice" [responsive]="true" #table>
+          <ng-template pTemplate="header" let-columns>
+            <!-- Checkbox column -->
+            <th class="table--col table--col_primary"></th>
+            <tr>
+              <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              </th>
+              <!-- Actions column -->
+              <th></th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+              <td>
+                <ion-checkbox></ion-checkbox>
+              </td>
+
+              <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                <ng-container *ngSwitchCase="'order'">
+                  <order-status [status]="rowData['status']" [date]="rowData['last_updated_at']"></order-status>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'created_by'">
+                  Alvaro Honsalez
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'status'">
+                  Delivered
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'last_update_at'">
+                  Just now
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'total'">
+                  {{ "1650" | currency:"USD":"symbol" }}
+                </ng-container>
+
+                <ng-template ngSwitchDefault>
+                  <button ion-button color="light">Export</button>
+                  <button ion-button color="light">View</button>
+                </ng-template>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

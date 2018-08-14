@@ -1,0 +1,432 @@
+order-view {
+  .margin-right-20{
+    margin-right: 10px !important;
+  }
+
+  .top-buttons {
+    text-align: right;
+    margin: auto 0;
+
+    button {
+      padding: 5px 12px;
+      font-size: 1.2em;
+      margin: 0 12px;
+
+      i{
+        margin-right: 10px;
+
+        &.right{
+          margin-right: 0;
+          margin-left: 10px;
+        }
+      }
+
+      &:disabled{
+        color: map_get($colors, "stable-dark");
+        border-color: map_get($colors, "stable-dark");
+      }
+    }
+
+    button.button-balanced-darken{
+      border-color: darken(map_get($colors, "balanced"), 15%);
+      color: darken(map_get($colors, "balanced"), 15%);
+
+      &.activated{
+        background-color: map_get($colors, "balanced");
+        color: white;
+      }
+    }
+
+    button:last-child{
+      margin-right: 0;
+    }
+
+    div.edit-order-txt{
+      color: map_get($colors, "stable-dark");
+      font-size: 1em;
+      font-family: ProximaNova-Italic;
+      text-align: center;
+      margin-top: 1em;
+      display: inline-block;
+      //min-width: 550px;
+
+      i{
+        margin-right: 8px;
+        color: darken(map_get($colors, "calm"), 20%);
+      }
+    }
+  }
+
+  .top-buttons.delivery-details{
+    button{
+      font-size: 1.1em;
+      padding: 10px 20px;
+      margin: 0 10px;
+    }
+  }
+
+  i.hvst-package-1{
+    font-size: 1.2em;
+  }
+
+  div.row.order-details, div.row.delivery-details, div.row.invoice-details{
+    color: $harvest-grey-4d4d;
+
+
+    div.top-reporters{
+      margin-top: 25px;
+      margin-bottom: 20px;
+
+      span.not-invoiced{
+        display: none;
+      }
+    }
+
+    span.order-status, span.delivery-status, span.invoice-status{
+      color: white;
+      display: inline-block;
+      text-align: center;
+      //min-height: 58px;
+      background: map_get($colors, "stable-dark");
+      font-size: 1.1em;
+      line-height: 2;
+      padding: 0 16px;
+      margin-left: 8px;
+
+      &.status-0{
+        background: map_get($colors, "stable-dark");
+      }
+
+      &.status-1, &.status-2{
+        background: map_get($colors, "calm");
+      }
+
+      &.status-3{
+        background: map_get($colors, "balanced");
+      }
+
+      &.status-4{
+        background: map_get($colors, "royal");
+      }
+    }
+
+    span.delivery-status{
+      &.status-0{
+        background: map_get($colors, "stable-dark");
+      }
+
+      &.status-1{
+        background: map_get($colors, "calm");
+      }
+
+      &.status-2{
+        background: map_get($colors, "balanced");
+      }
+
+      &.status-3{
+        background: map_get($colors, "energized");
+      }
+
+      &.status-4{
+        background: map_get($colors, "royal");
+      }
+    }
+
+    div.last-updated{
+      display: inline-block;
+      font-size: 1.1em;
+      color: $harvest-grey-4d4d;
+      margin-left: 16px;
+    }
+
+    div.payment-method{
+      font-size: 1.1em;
+      span{
+        &.not-invoiced{
+          //display: none;
+        }
+      }
+      i.hvst-payment-1{
+        font-size: 1em;
+        margin-right: 6px;
+        position: relative;
+        top: 4px;
+      }
+
+      i.ion-record{
+        margin-left: 12px;
+        margin-right: 6px;
+        font-size: 0.7em;
+        line-height: 1.2;
+        &.status-0{
+          color: map_get($colors, "calm");
+        }
+        &.status-1{
+          color: map_get($colors, "balanced");
+        }
+        &.status-2{
+          color: #CCCCCC;
+        }
+        &.status-3, &.status-5{
+          color: map_get($colors, "assertive");
+        }
+        &.status-4{
+          color: map_get($colors, "energized");
+        }
+      }
+    }
+
+    div.original-order{
+      font-size: 1.1em;
+      line-height: 1.5;
+    }
+  }
+
+  table.hvst-table#delivery-item-view{
+    thead tr th:first-child div, tr td:first-child{
+      text-align: center !important;
+      margin-left: 0 !important;
+      padding-left: 30px !important;
+      padding-right: 10px;
+    }
+
+    thead tr th:nth-child(2) div, tr td:nth-child(2){
+      text-align: center !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 20px;
+    }
+
+    thead tr th:nth-child(3) div, tr td:nth-child(3){
+      text-align: left !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+
+    tr td.supplier-name{
+      max-width: 200px;
+      padding-right: 15px;
+    }
+
+    tr td.delivery-item-name, tr td.supplier-item-name{
+      max-width: 200px;
+      padding-right: 15px;
+    }
+
+  }
+
+  div.page-header.delivery-details h1{
+    font-size:1.2em;
+  }
+
+  span.delivery-supplier-name-title{
+    display: inline-block;
+    max-width: 192px;
+    vertical-align: text-bottom;
+  }
+
+  table#submitted-order-view, table#delivery-item-view{
+    td.vendor{
+      max-width: 115px;
+      padding-right: 25px;
+    }
+
+    td:last-child{
+      padding-right: 30px;
+    }
+
+    td:first-child, th:first-child div{
+      text-align: right !important;
+    }
+
+    th div.item-name{
+      text-align: left !important;
+      padding-left: 72px;
+    }
+
+    td.submitted-by{
+      max-width: 105px;
+      padding-right: 25px;
+    }
+
+    div.wider-quality-options{
+      min-width: 125px;
+    }
+
+  }
+
+  table.related-deliveries{
+    th:nth-child(2) div{
+      text-align: left;
+    }
+
+    td:nth-child(2) {
+      color: darken($harvest_obvious_link, 20%);
+      font-family: ProximaNova-SemiBold;
+    }
+
+    td.supplier-name{
+      max-width: 130px;
+      padding-right: 25px;
+    }
+
+    td.Arrived-today{
+      color: map_get($colors, "balanced");
+    }
+
+    td.Today-today{
+      color: map_get($colors, "calm");
+    }
+
+    td.status{
+
+      i{
+        font-size: 12px;
+        position: relative;
+        top: -4px;
+        margin-right: 18px;
+      }
+    }
+  }
+
+  div.order-total-container{
+    background: #f2f2f2;
+    //min-height: 360px;
+    //width: 540px;
+    font-size: 1.2em;
+    line-height: 1.2em;
+    color: $harvest-grey-4d4d;
+    padding: 20px 32px 14px 32px;
+    margin: 45px auto;
+
+    div.hr .t-col{
+      border-top: 1px solid #999999;
+      //height: 15px;
+      line-height: 1.5;
+    }
+
+    div.t-row {
+      display: table-row;
+      width: 100%;
+    }
+
+    div.t-row div.t-col{
+      display: table-cell;
+      padding-top: 12px !important;
+      padding-bottom: 12px !important;
+    }
+
+    div.t-row div.t-col:first-child{
+      text-align: right;
+      padding-right: 10px;
+    }
+
+    div.t-row.hr-space div.t-col{
+      padding-bottom: 10px !important;
+    }
+
+    div.savings .t-col:nth-child(2){
+      color: map_get($colors, "balanced");
+    }
+
+    div.grand-total{
+      font-family: ProximaNova-SemiBold;
+    }
+
+  }
+
+  h4{
+    text-transform: uppercase;
+    font-size: 0.8em;
+    color: $harvest-grey-4d4d;
+    font-family: ProximaNova-SemiBold;
+    margin-left: 20px;
+    margin-bottom: 15px;
+  }
+
+  table.triple-data-table{
+    font-size: 1.2em;
+    box-shadow: 0 0 0 1px $bar_harvest-border;
+    border-collapse: collapse;
+    border-style: hidden;
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 10px;
+    line-height: 1.5px;
+
+    thead{
+      font-family: ProximaNova-SemiBold;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      border-bottom: 1px solid $bar_harvest-border;
+
+      th{
+        padding: 10px 0 10px 11px;
+        line-height: 1.5;
+      }
+    }
+
+    tr td{
+      vertical-align: top;
+      padding-left: 15px;
+    }
+
+    tr td:last-child div.table-body div.t-row div.t-col:last-child{
+      padding-right: 16px;
+    }
+
+    tr td:first-child div.table-body{
+      //min-width: 525px;
+    }
+
+    .table-body{
+      margin: 16px 0;
+    }
+
+    .t-row {
+      .t-col {
+        padding: 0 0 9px 0;
+        line-height: 1.25;
+      }
+      .t-col:first-child{
+        padding-right: 50px;
+        font-family: ProximaNova-Regular;
+        color: #555555;
+        font-size: 1em;
+        letter-spacing: 1px;
+        //text-transform: uppercase;
+      }
+
+      &:last-child .t-col{
+        padding-bottom: 0px;
+      }
+    }
+
+    .table-body.no-label-column{
+      .t-row{
+        .t-col:first-child{
+          padding-right: 0 !important;
+          color: $harvest-grey-4d4d !important;
+          font-size: 1.6em !important;
+          letter-spacing: normal !important;
+        }
+      }
+    }
+
+  }
+
+  .pending-deliveries {
+    padding-right: 40px;
+  }
+
+  .t-row {
+    display: table-row;
+    width: 100%;
+  }
+
+  .t-row .t-col{
+    display: table-cell;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+}

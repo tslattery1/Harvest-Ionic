@@ -1,0 +1,137 @@
+<div class="row">
+  <div class="col-80">
+    <div ncy-breadcrumb></div>
+  </div>
+</div>
+<!-- END BREADCRUMBS -->
+
+<!-- TITLE -->
+<div class="row text-left workspace--header">
+  <div class="page-header">
+    <i class="icon hvst-settings"></i>
+    <h1>Main Settings</h1>
+  </div>
+</div>
+<!-- END OF TITLE -->
+
+<div class="row">
+  <!-- SIDEBAR -->
+  <div class="col-15 workspace--sidebar">
+
+    <ion-list class="options" no-border no-padding>
+      <button ion-button [clear]="!isFilterActive('main')"
+              icon-left color="calm"
+              (click)="setFilter('main')"
+      >
+        <i class="icon hvst-settings"></i>
+        Main
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('users')"
+              icon-left color="calm"
+              (click)="setFilter('users')"
+      >
+        <i class="icon hvst-user-1"></i>
+        Users
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('account')"
+              icon-left color="calm"
+              (click)="setFilter('account')"
+      >
+        <i class="icon hvst-idcard"></i>
+        Account
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('payment')"
+              icon-left color="calm"
+              (click)="setFilter('payment')"
+      >
+        <i class="icon hvst-credit_card-dark"></i>
+        Payment
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('security')"
+              icon-left color="calm"
+              (click)="setFilter('security')"
+      >
+        <i class="icon hvst-lock-2"></i>
+        Security
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('integration')"
+              icon-left color="calm"
+              (click)="setFilter('integration')"
+      >
+        <i class="icon hvst-integrations"></i>
+        Integration
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('rules')"
+              icon-left color="calm"
+              (click)="setFilter('rules')"
+      >
+        <i class="icon hvst-magicwand"></i>
+        Custom Rule
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('suppliers')"
+              icon-left color="calm"
+              (click)="setFilter('suppliers')"
+      >
+        <i class="icon hvst-supplier_store"></i>
+        Suppliers
+      </button>
+    </ion-list>
+  </div>
+  <!-- END OF SIDEBAR -->
+
+  <div class="col-80 workspace--content workspace--content_padded">
+    <div class="section">
+      <h4 class="section--title">General settings</h4>
+
+      <div class="option">
+        <div class="option--title">User Avatar Photos</div>
+        <div class="option--description">Enable or disable the user photos that show before user's name</div>
+        <div class="option--value">
+          <labeled-toggle yesLabel="Avatar Photos Enabled" noLabel="Avatar Photos Disabled"></labeled-toggle>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h4 class="section--title">Notifications</h4>
+
+      <div class="option">
+        <div class="option--title">Critical Notifications</div>
+        <div class="option--description">Select which users hould recieve critical account notifications via SMS</div>
+        <div class="option--value">
+          <button ion-button outline color="balanced" icon-right>
+            Add User to Notification List
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="table table_striped">
+        <p-table [columns]="cols" [value]="slice | async" [responsive]="true" #table>
+          <ng-template pTemplate="header" let-columns>
+            <tr>
+              <th class="table--cell table--cell_primary"></th>
+              <th>Recieving notifications</th>
+              <th>Title</th>
+              <th>User Role</th>
+              <th>Phone</th>
+              <th class="table--cell table--cell_primary"></th>
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-rowData let-columns="columns">
+            <tr>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+  </div>
+</div>

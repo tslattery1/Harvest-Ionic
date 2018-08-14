@@ -1,0 +1,16 @@
+<div class="toggle-icon">
+  <div class="toggle-inner"></div>
+</div>
+
+<button role="checkbox" type="button" ion-button="item-cover"
+        [id]="id"
+        [attr.aria-checked]="_value"
+        [attr.aria-labelledby]="_labelId"
+        [attr.aria-disabled]="_disabled"
+        class="item-cover"
+        disable-activated
+>
+  <label class="label" [ngClass]="{'label_left': !_value, 'label_right': _value}">
+    {{ ( _value ) ? yesLabel : noLabel }}
+  </label>
+</button>

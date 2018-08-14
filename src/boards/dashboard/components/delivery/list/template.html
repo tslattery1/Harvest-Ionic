@@ -1,0 +1,25 @@
+<div class="table table_striped">
+
+    <p-table [columns]="cols" [value]="[]" [responsive]="true" dataKey="id" [loading]="!isReady" #table>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length">
+                    No data available on this section
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div>

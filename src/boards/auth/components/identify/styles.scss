@@ -1,0 +1,123 @@
+identify-tablet-component {
+  .box {
+    &--title {
+      margin: 10px 0 30px;
+    }
+
+    &--actions {
+      .button {
+        font-size: .9em;
+        height: auto;
+        line-height: 2;
+        padding: 10px;
+      }
+
+      .button + .button {
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .well {
+    display: block;
+    background: darken(map_get($colors, "light"), 2.5%);
+    border: 1px solid darken(map_get($colors, "light"), 15%);
+    padding: 3em 8em;
+    margin-bottom: 2.5em;
+
+    &--header {
+      text-align: center;
+    }
+
+    &--title {
+      font-size: 1.8em;
+      font-family: ProximaNova-Regular, serif;
+      color: map_get($colors, "dark");
+      margin-bottom: 0.5em;
+    }
+
+    &--description {
+      font-size: 1.5em;
+      font-family: ProximaNova-Regular, serif;
+      color: lighten(map_get($colors, "stable-dark"), 5%);
+      margin-bottom: 2em;
+    }
+  }
+
+  .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .icon {
+    &_success {
+      color: map_get($colors, "balanced");
+    }
+
+    &_fail {
+      color: map_get($colors, "assertive");
+    }
+  }
+
+  .success {
+    display: flex;
+    margin: 20px auto;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+
+    &--title {
+      font-family: ProximaNova-Regular, serif;
+      font-size: 1.8em;
+      color: map_get($colors, "balanced");
+      margin-bottom: 0.5em;
+    }
+
+    &--icon {
+      font-size: 10em;
+      color: map_get($colors, "balanced");
+    }
+  }
+
+  .input {
+    &_group {
+      position: relative;
+      display: flex;
+      height: 4em;
+      width: 100%;
+      z-index: 1;
+      align-items: center;
+
+      input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        font-size: 1.6em;
+        padding: 10px 0 10px 60px;
+        background: map_get($colors, "light");
+        z-index: -1;
+        border: 1px solid darken(map_get($colors, "light"), 15%);
+        text-transform: uppercase;
+      }
+
+      .input {
+        &--icon {
+          display: block;
+          margin: auto 20px;
+          font-size: 1.5em;
+          line-height: 1;
+          z-index: 10;
+        }
+
+        &--state {
+          position: absolute;
+          top: 7px;
+          right: -50px;
+          font-size: 2.5em;
+        }
+      }
+    }
+  }
+}

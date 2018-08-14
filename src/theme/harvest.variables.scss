@@ -1,0 +1,118 @@
+// Variables --------------------------------------
+
+$harvest_gradient_green:          #a0d468 !default;
+$harvest_gradient_blue:           #3fa9f5 !default;
+$harvest-grey-4d4d:               #4d4d4d !default;
+$harvest-grey-999:                #999999 !default;
+$harvest_light_text:              #656C69 !default;
+
+$harvest_light_grey:              #CCCCCC !default;
+$harvest_very_light_grey:         #E7EBE9 !default;
+$harvest_subheader_grey:          #808080 !default;
+
+$harvest_obvious_link:            #3a97ad !default;
+$harvest_bright_link:             #4fc0e9 !default;
+$harvest_dark_link:             #3293ad !default;
+$harvest-table-gear-grey:         #7A7A7A !default;
+
+$harvest_view_padding:            20px 80px 20px 80px !default;
+
+
+// Fonts ---------------------------------------
+
+$font-family-sans-serif:          "ProximaNova-Regular", sans-serif !default;
+$font-family-light-sans-serif:    "ProximaNova-Light", sans-serif-light !default;
+
+
+// Button --------------------------------------
+
+$pulse_change_percent: 9;
+
+$button-bar-button-padding:       32px !default;
+$button-padding:                  16px !default;
+
+$button-block-margin:             10px !default;
+$button-clear-padding:            6px !default;
+$button-border-radius:            5px !default;
+$button-border-width:             1px !default;
+
+$button-font-size:                16px !default;
+$button-height:                   42px !default;
+$button-padding:                  12px !default;
+$button-icon-size:                24px !default;
+
+$button-large-font-size:          20px !default;
+$button-large-height:             54px !default;
+$button-large-padding:            32px !default;
+$button-large-icon-size:          32px !default;
+
+$button-larger-factor:             1.5 !default;
+$button-larger-padding:            round($button-large-padding * $button-larger-factor) !default;
+$button-larger-font-size:          round($button-large-font-size * $button-larger-factor*1.33) !default;
+$button-larger-height:             round($button-large-height * $button-larger-factor) !default;
+$button-larger-icon-size:          round($button-large-icon-size * $button-larger-factor) !default;
+
+$button-hero-padding:            24px !default;
+$button-hero-font-size:          16px !default;
+$button-hero-height:             54px !default;
+$button-hero-icon-size:          32px !default;
+$button-hero-border-radius:      8px !default;
+
+$button-harvest-bg:                 $harvest_gradient_green !default;
+$button-harvest-text:               #444 !default;
+$button-harvest-border:             #ddd !default;
+$button-harvest-active-bg:          #fafafa !default;
+$button-harvest-active-border:      #ccc !default;
+
+$button-start-order-bg:             map_get($colors, "energized") !default;
+$button-start-order-text:           #fff !default;
+$button-start-order-border:         map_get($colors, "energized") !default;
+$button-start-order-active-bg:      darken(map_get($colors, "energized"), 10%) !default;
+$button-start-order-active-border:  darken(map_get($colors, "energized"), 10%) !default;
+
+
+// Bars --------------------------------------
+
+$z-index-bar-title:               0 !default;
+$headings-font-weight:            500 !default;
+$bar-height:                      80px !default; // increased because border was NOT extending the box height, so 128px + 8px bottom border = 136px..
+$bar-subheader-height:            104px !default;
+$bar-title-font-size:             32px !default;
+$bar-padding:                     16px !default;
+$bar-padding-portrait:            $bar-padding;
+$bar-padding-landscape:           $bar-padding;
+$bar-transparency:                1 !default;
+
+
+// Logo ---------------------------------------
+
+$logo-height:                     28px !default;
+$logo-width:                      145px !default;
+$logo-margin-top:                 ($bar-height - $logo-height - ($bar-padding-portrait/2)) / 2; // vertical center align
+
+$bar-footer-height:               $bar-height !default;
+$bar-subheader-height:            $bar-height !default;
+$bar-subfooter-height:            $bar-height !default;
+
+$bar-harvest-bg:                    $button-harvest-bg !default;
+$bar-harvest-text:                  $button-harvest-text !default;
+$bar-harvest-border:                #e6e6e6 !default;
+$bar-harvest-active-bg:             $button-harvest-active-bg !default;
+$bar-harvest-active-border:         $button-harvest-active-border !default;
+$bar-harvest-border-bottom:         8px $bar-harvest-border solid !important;
+
+$bar-harvest-buttons-left-margin:   52px - $bar-padding !default;
+$bar-harvest-buttons-right-margin:  52px !default;            // Correct for the right-button offset from title logo
+
+
+// Image Sizes ---------------------------------------
+
+$img-avatar-width:                  32px !default;
+$img-avatar-height:                 32px !default;
+
+
+// Menus ---------------------------------------------
+
+$hvst-right-menu-width:             400px !default;
+$hvst-left-menu-width:              85px !default;
+$hvst-app-width-landscape:          2560px !default;

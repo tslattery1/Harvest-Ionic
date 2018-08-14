@@ -1,0 +1,169 @@
+@font-face {
+  font-family: ProximaNova-Regular;
+  src: local("ProximaNova-Regular"),
+    url("../assets/fonts/proxima-nova/proximanova-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: ProximaNova-Italic;
+  src: local("ProximaNova-Italic"),
+    url("../assets/fonts/proxima-nova/proximanova-regularitalic-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-SemiBold;
+  src: local("ProximaNova-SemiBold"),
+    url("../assets/fonts/proxima-nova/proximanova-semibold-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-SemiBoldItalic;
+  src: local("ProximaNova-SemiBoldItalic"),
+    url("../assets/fonts/proxima-nova/proximanova-semibolditalic-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-Light;
+  src: local("ProximaNova-Light"),
+    url("../assets/fonts/proxima-nova/proximanova-light-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-Bold;
+  src: local("ProximaNova-Bold"),
+    url("../assets/fonts/proxima-nova/proximanova-bold-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-BoldItalic;
+  src: local("ProximaNova-BoldItalic"),
+    url("../assets/fonts/proxima-nova/proximanova-bolditalic-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-ExtraBold;
+  src: local("ProximaNova-ExtraBold"),
+    url("../assets/fonts/proxima-nova/proximanova-extrabold-webfont.woff");
+}
+
+@font-face {
+  font-family:ProximaNova-Black;
+  src: local("ProximaNova-Black"),
+    url("../assets/fonts/proxima-nova/proximanova-black-webfont.woff");
+}
+
+@font-face{
+  font-family:AvenirNextLTPro-Medium;
+  src: local("AvenirNextLTPro-Medium"),
+    url("../assets/fonts/avenir/avenir-lt-std-65-medium-webfont.woff");
+}
+
+@font-face{
+  font-family:AvenirNextLTPro-Demi;
+  src: local("AvenirNextLTPro-Demi"),
+    url("../assets/fonts/avenir/avenir-lt-pro-demi-webfont.woff");
+}
+
+@font-face {
+  font-family:AvenirNextLTPro-Bold;
+  src: local("AvenirNextLTPro-Bold"),
+    url("../assets/fonts/proximanova/proximanova-bold-webfont");
+}
+@font-face {
+  font-family:AvenirNextLTPro-Heavy;
+  src: local("AvenirNextLTPro-Heavy"),
+    url("../assets/fonts/proximanova/proximanova-black-webfont");
+}
+
+
+/*This didn't work well with Ionic.. Apparently it prefers CSS2 style declarations*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: normal;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-regular-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: normal;*/
+/*font-style: italic;*/
+/*src: url(fonts/proximanova-regularitalic-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: 600;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-semibold-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: 600;*/
+/*font-style: italic;*/
+/*src: url(fonts/proximanova-semibolditalic-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: lighter;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-light-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: bold;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-bold-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: bold;*/
+/*font-style: italic;*/
+/*src: url(fonts/proximanova-boldit-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: bolder;*/
+/*font-style: italic;*/
+/*src: url(fonts/proximanova-extrabold-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'ProximaNova';*/
+/*font-weight: 900;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-black-webfont.woff);*/
+/*}*/
+
+/*@font-face{*/
+/*font-family: 'AvenirNextLTPro';*/
+/*font-weight: 500;*/
+/*font-style: normal;*/
+/*src: url(fonts/avenir-lt-std-65-medium-webfont.woff);*/
+/*}*/
+
+/*@font-face{*/
+/*font-family: 'AvenirNextLTPro';*/
+/*font-weight: 600;*/
+/*font-style: normal;*/
+/*src: url(fonts/avenir-lt-pro-demi-webfont.woff);*/
+/*}*/
+
+/*@font-face {*/
+/*font-family: 'AvenirNextLTPro';*/
+/*font-weight: bold;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-bold-webfont.woff);*/
+/*}*/
+/*@font-face {*/
+/*font-family: 'AvenirNextLTPro';*/
+/*font-weight: bolder;*/
+/*font-style: normal;*/
+/*src: url(fonts/proximanova-black-webfont.woff);*/
+/*}*/

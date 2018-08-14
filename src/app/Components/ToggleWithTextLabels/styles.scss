@@ -1,0 +1,57 @@
+.toggle {
+  &-labeled {
+    display: block;
+    width: 295px;
+
+    .toggle-icon {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: -1;
+      background-color: map_get($colors, "balanced") !important;;
+    }
+
+    &.toggle-checked {
+      .toggle-icon {
+        background-color: map_get($colors, "energized") !important;;
+      }
+
+      .toggle-inner {
+        transform: translate3d(265px, 0, 0) !important;
+        background-color: map_get($colors, "light") !important;;
+      }
+    }
+
+    .item-cover {
+      position: relative !important;
+    }
+  }
+}
+
+labeled-toggle {
+  padding: 0 !important;
+  height: 30px !important;
+
+  .toggle {
+    &-inner {
+      top: 5px !important;
+      left: 5px !important;
+    }
+
+    &-icon {
+    }
+  }
+
+  .item {
+    position: relative;
+
+    &-cover {
+      text-overflow: ellipsis;
+      font-family: ProximaNova-SemiBold, serif;
+      font-size: 1.1em;
+      padding: 10px 5px;
+      color: #fff;
+    }
+  }
+}

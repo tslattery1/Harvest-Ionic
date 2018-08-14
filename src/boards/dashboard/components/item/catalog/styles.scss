@@ -1,0 +1,619 @@
+item-catalog {
+  .workspace {
+    &--header {
+      margin: 20px 0 10px;
+      align-items: center;
+    }
+  }
+
+  h4.catalog-filter-title, h4.selection-filter-title{
+    font-family: "ProximaNova-SemiBold";
+    color: $harvest-grey-4d4d;
+    font-size: 1.3em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 10px 0;
+    display: inline-block;
+    width: 450px;
+    position: relative;
+
+    i{
+      position: absolute;
+      right: 36px;
+    }
+
+  }
+
+  div.selection-list, div.button-bar-container, div.range-slider-container{
+    h4.selection-filter-title{
+      i{
+        right: 60px !important;
+      }
+    }
+  }
+
+  div.catalog-list-categories, div.selection-list{
+    margin: 0;
+
+    input[type="radio"]{
+      display: none;
+    }
+
+    div.selection-option-container{
+      label{
+        width: 217px !important;
+      }
+    }
+
+
+    label{
+      display: block;
+      height: 30px;
+      width: 225px;
+      background-color: white;
+      color: $harvest-grey-4d4d;
+      position: relative;
+      font-size: 1.3em;
+      line-height: 2;
+      //margin-left: -16px;
+      padding-left: 16px;
+      border-radius: 8px;
+      //-webkit-transition: .1s all ease-in-out;
+      //transition: .1s all ease-in-out;
+
+      i{
+        border: 7px solid #999;
+        border-radius: 14px;
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        position: relative;
+        color: white;
+        margin-right: 20px;
+
+        &:before{
+          font-size: 0.8em;
+          line-height: 1.5;
+          position: absolute;
+          left: -1px;
+          top: -1px;
+        }
+      }
+
+      span.category-name{
+        max-width: 155px;
+        display: inline-block;
+        line-height: 1.5;
+        vertical-align: center;
+        height: 16px;
+        position: relative;
+        top: 2px;
+      }
+
+
+      span:not(.category-name){
+        display: inline-block;
+        border: 2px solid map_get($colors, "calm");
+        padding: 4px;
+        line-height: 1.2;
+        min-width: 27px;
+        text-align: center;
+        font-size: 0.8em;
+        font-family: ProximaNova-SemiBold;
+        color: map_get($colors, "calm");
+        border-radius: 4px;
+        position: absolute;
+        right: 20px;
+        top: 12px;
+      }
+    }
+
+    input[type='radio']:checked + label{
+      color: white;
+      background-color: map_get($colors, "calm");;
+
+      span{
+        color: white;
+        border-color: white;
+      }
+
+      //i{
+      //  color: $calm;
+      //  border-color: $calm;
+      //}
+    }
+  }
+
+  div.active-filters-container{
+    border: 4px solid map_get($colors, "calm");;
+    border-radius: 10px;
+    margin-top: 24px;
+    width: 95%;
+
+    div.filter-header{
+      background-color: map_get($colors, "calm");;
+      height: 31px;
+      font-size: 1.1em;
+      font-family: ProximaNova-Bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 2;
+      padding-left: 24px;
+      position: relative;
+
+      button{
+        i:before{
+          color: white;
+          position: absolute;
+          right: 0;
+          top: 2.5px;
+          font-size: 0.8em;
+        }
+      }
+    }
+    div.category-filter:nth-child(2){
+      margin-top: 12px;
+    }
+
+    div.active-filter{
+      font-size: 1.2em;
+      color: $harvest-grey-4d4d;
+      min-height: 26px;
+      width: 100%;
+      line-height: 1.75;
+      position: relative;
+      padding-left: 10px;
+
+
+      &.category-filter{
+        margin: 10px auto;
+
+        i.hvst-arrow-curve{
+          font-size: 0.5em;
+          color: #666666;
+          position: absolute;
+          //line-height: 72px;
+          //top: 3px;
+          margin-right: 5px;
+        }
+
+        &.categories, &.category{
+          i.hvst-arrow-curve{
+
+          }
+          span{
+            padding-left: 14px;
+          }
+        }
+        &.subcategories, &.subcategory{
+          i.hvst-arrow-curve{
+            margin-left: 6px;
+          }
+          span{
+            padding-left: 14px;
+          }
+        }
+        &.basecategory, &.basecategories, &.baseCategories{
+          i.hvst-arrow-curve{
+            margin-left: 14px;
+          }
+          span{
+            padding-left: 14px * 2;
+          }
+        }
+
+      }
+
+      &.attribute-filter{
+        background-color: lighten(map_get($colors, "calm"), 38%);
+        border-top: 4px solid map_get($colors, "calm");
+        height: 38px;
+        line-height: 2;
+
+        span.filterAttributeName{
+          font-family: ProximaNova-SemiBold;
+          margin-right: 12px;
+        }
+
+        button{
+          i:before{
+            line-height: 36px;
+          }
+        }
+      }
+
+      span{
+        display: inline-block;
+        max-width: 128px;
+        line-height: 2;
+      }
+
+      button{
+        position: absolute;
+        right: 1px;
+
+        i:before {
+          display: inline-block;
+          line-height: 2;
+          font-size: 1.2em;
+          color: #666666;
+        }
+      }
+    }
+  }
+
+  div.scroll-container{
+    overflow: hidden !important;
+    border: 1px solid transparent;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+  }
+
+  div.catalog-title-txt{
+    color: $harvest-grey-4d4d;
+    font-size: 1.8em;
+    position: relative;
+
+    i:before{
+      font-size: 1.2em;
+      margin: 0 8px 0 10px;
+    }
+
+    span.catalog-name{
+      font-family: ProximaNova-Light;
+      text-transform: uppercase;
+    }
+
+    span.category-sort-name{
+      text-transform: uppercase;
+    }
+
+    span.listTableTitle{
+      font-size: 1em;
+      margin-left: 30px;
+      display: inline-block;
+      line-height: 1.35;
+      max-width: 300px;
+      color: map_get($colors, "stable-dark");
+    }
+  }
+
+  thead.thead-all-items, div.thead-all-items{
+    width: 96.2%;
+    height: 36px;
+    margin-left: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #e6e6e6;
+    font-family: ProximaNova-SemiBold;
+
+    input[type="radio"]{
+      display: none;
+    }
+
+    label{
+      font-size: 1.1em;
+      color: $harvest_subheader_grey;
+      letter-spacing: 1px;
+      margin-left: 12px;
+      margin-right: 12px;
+      text-transform: uppercase;
+
+      &:first-child{
+      }
+    }
+
+    input[type="radio"]:checked + label{
+      color: map_get($colors, "calm");;
+      text-decoration: underline;
+    }
+
+    div.all-items-sort{
+      div.sort-container{
+        display: inline-block;
+      }
+    }
+
+    div.display-mode{
+      span{
+        font-size: 12px;
+        color: #666666;
+        position: relative;
+        top: -2px;
+      }
+
+      input[type="radio"]{
+        display: none;
+      }
+
+      input[type="radio"]:checked + label{
+        background-color: map_get($colors, "energized");;
+        color: white
+      }
+
+      label {
+        display: inline-block;
+        text-align: center;
+        width: 18px;
+        height: 18px;
+        font-size: 1.3em;
+        color: $harvest_subheader_grey;
+        letter-spacing: 1px;
+        margin-left: 15px;
+        margin-right: 0;
+        text-transform: none !important;
+        border-radius: 4px;
+      }
+    }
+  }
+
+  table{
+
+    thead tr{
+
+      th:nth-child(2) div{
+        text-align: left !important;
+      }
+
+      th:last-child div{
+        text-align: center;
+      }
+
+      th.livePrice div{
+        text-align: left;
+        //padding-left: 20px;
+      }
+    }
+
+    tr.catalogItemTable {
+
+      img.table-item-image{
+        width: 40px;
+        height: 40px;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        position: relative;
+        top: 0;
+        vertical-align: middle;
+      }
+
+      td{
+        vertical-align: middle !important;
+      }
+
+      td.first-column{
+        max-width: 77px;
+      }
+
+      td.second-column{
+        padding: 0;
+        margin: 0;
+        text-align: left;
+      }
+
+
+
+    }
+
+    $grid-item-diameter: 120px;
+    $grid-border: 4px;
+    $grid-padding: 12px;
+
+    img.grid-item-image{
+      width: $grid-item-diameter + ($grid-border * 2);
+      height: $grid-item-diameter + ($grid-border * 2);
+      margin: 0 auto;
+      padding: 0;
+      display: block;
+      border: $grid-border white solid;
+      border-radius: ($grid-item-diameter + ($grid-border * 2))/2;
+      //position: relative;
+      //top: 14px;
+      vertical-align: middle;
+    }
+
+    td.grid-container{
+      background-color: white;
+
+      div.grid-item{
+        display: inline-block;
+        width: 23%;
+        background-color: white;
+        border: 1px solid #d4d4d4;
+        margin: 1% 1%;
+      }
+
+      div.img-container{
+        background-color: #f9f9f9;
+        height: $grid-item-diameter + ($grid-border * 2) + ($grid-padding * 2);
+        padding-top: $grid-padding;
+      }
+
+      div.info-container{
+        border-top: 1px solid #d4d4d4;
+
+        div.title-category{
+          padding: 10px;
+        }
+
+        span{
+          display: block;
+          width: 100%;
+          line-height: 1.3;
+
+          &.item-name{
+            font-size: 1.3em;
+            font-family: ProximaNova-SemiBold;
+            max-width: 165px;
+          }
+
+          &.category{
+            font-size: 0.9em;
+            font-family: ProximaNova-Regular;
+            max-width: 165px;
+          }
+        }
+      }
+
+      div.price-options{
+        border-top: 1px solid #d4d4d4;
+        height: 36px;
+
+        i{
+          &:before{
+            font-size: 1.1em;
+            color: map_get($colors, "balanced");;
+            margin-right: 0.6em;
+          }
+        }
+
+        span.price{
+          display: block;
+          font-size: 1.1em;
+          font-family: ProximaNova-Bold;
+          line-height: 1.75;
+          margin-left: 6px;
+        }
+
+        button.hvst-grid-options-btn{
+          font-size: 1.1em;
+          font-family: ProximaNova-Regular;
+          margin-top: 6px;
+        }
+      }
+
+    }
+
+    td.PkCSQty, th div.PkCSQty{
+      text-align: right !important;
+      padding-right: 20px;
+    }
+
+
+    button.add-to-list, button.add-to-cart, button.see-options{
+      width: 64px;
+      min-height: 30px !important;
+      border: 2px solid;
+      font-size: 1.1em;
+      color: white;
+      border-radius: 4px;
+
+      &:before{
+        margin-right: 10px;
+        font-size: 1.1em;
+      }
+
+      &.exists{
+        background: white;
+        border-color: $harvest_subheader_grey;
+        font-size: 0;
+        line-height: 0;
+        min-width: 64px;
+        color: white;
+        width: 60px;
+        @extend .hvst-checkmark-1;
+        position: relative;
+        top: 2px;
+
+        &:before{
+          padding: 0;
+          margin: 0;
+          font-size: 0.9em;
+          color: $harvest_subheader_grey;
+        }
+      }
+    }
+
+    td.livePrice{
+      text-align: left;
+      //padding-left: 20px;
+      font-family: ProximaNova-SemiBold;
+      font-size: 14px;
+    }
+
+    td.add-cart-or-list{
+      text-align: center;
+    }
+
+    button.add-to-list{
+      background: map_get($colors, "calm");;
+      border-color: map_get($colors, "calm");;
+      @extend .hvst-clipboard-1;
+    }
+
+    button.add-to-cart{
+      background: map_get($colors, "balanced");;
+      border-color: map_get($colors, "balanced");;
+      @extend .hvst-cart-8;
+    }
+
+    button.see-options{
+      background: white;
+      border-color: $harvest_subheader_grey;
+      color: $harvest_subheader_grey;
+      font-size: 14px;
+      width: 110px;
+    }
+
+    td[data-title='Name']{
+      font-family: ProximaNova-SemiBold;
+    }
+
+  }
+
+  div.button-bar-container{
+    margin-right: 10px;
+
+    h4{
+      margin-bottom: 15px;
+    }
+
+    div.harvest-button-bar{
+      border: 3px solid #999999;
+      background-color: #999999;
+      border-radius: 5px;
+
+      &.active{
+        border-color: map_get($colors, "calm") !important;
+        background-color: map_get($colors, "calm");
+
+        a{
+          border-right: 3px solid map_get($colors, "calm");
+        }
+      }
+
+      a{
+        border-radius: 0px !important;
+        font-size: 14px;
+        color: $harvest-grey-4d4d;
+        background-color: white;
+        line-height: 1.75;
+        border-right: 3px solid #999999;
+        border-radius: 0px;
+
+        &.active{
+          background-color: map_get($colors, "calm");;
+          color: white;
+        }
+
+        &:last-child{
+          border-right: none !important;
+        }
+      }
+    }
+  }
+
+  table.hvst-table{
+  }
+
+  ::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none;
+  }
+
+  div.range-slider-container{
+
+  }
+}

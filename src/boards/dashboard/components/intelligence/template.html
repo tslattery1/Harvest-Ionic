@@ -1,0 +1,235 @@
+<div class="row">
+  <div class="col-80">
+    <div ncy-breadcrumb></div>
+  </div>
+</div>
+<!-- END BREADCRUMBS -->
+
+<!-- TITLE -->
+<div class="row text-left workspace--header">
+  <div class="col-80">
+    <div class="page-header" [ngSwitch]="filter">
+      <ng-container *ngSwitchCase="'savings_metrics'">
+        <i class="icon hvst-gauge"></i>
+        <h1>Savings Metrics</h1>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'order_analysis'">
+        <i class="icon hvst-graphs-2"></i>
+        <h1>Order Analysis</h1>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'pricing_analysis'">
+        <i class="icon hvst-pulse"></i>
+        <h1>Pricing Analysis</h1>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'market_watch'">
+        <i class="icon hvst-atom-large"></i>
+        <h1>Market Watch</h1>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="col-20">
+    <!--test-->
+  </div>
+</div>
+<!-- END OF TITLE -->
+
+<div class="row">
+  <!-- SIDEBAR -->
+  <div class="col-15 workspace--sidebar">
+    <h4 class="options--title">
+      Reporting
+    </h4>
+
+    <ion-list class="options" no-border no-padding>
+      <button ion-button [clear]="!isFilterActive('savings_metrics')"
+              icon-left color="calm"
+              (click)="setFilter('savings_metrics')"
+      >
+        <i class="icon hvst-gauge"></i>
+        Savings metrics
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('order_analysis')"
+              icon-left color="calm"
+              (click)="setFilter('order_analysis')"
+      >
+        <i class="icon hvst-graphs-2"></i>
+        Order analysis
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('pricing_analysis')"
+              icon-left color="calm"
+              (click)="setFilter('pricing_analysis')"
+      >
+        <i class="icon hvst-pulse"></i>
+        Pricing analysis
+      </button>
+
+      <button ion-button [clear]="!isFilterActive('market_watch')"
+              icon-left color="calm"
+              (click)="setFilter('market_watch')"
+      >
+        <i class="icon hvst-atom-large"></i>
+        Market watch
+      </button>
+    </ion-list>
+  </div>
+  <!-- END OF SIDEBAR -->
+
+  <div class="col-80 workspace--content workspace--content_padded">
+
+    <div class="row overview">
+
+      <div class="col-33">
+
+        <h3 class="overview--title">Ordering efficiency</h3>
+
+        <div class="chart chart_overview">
+          <ngx-charts-pie-chart
+            class="chart--canvas"
+            [scheme]="chartStyles"
+            [results]="efficiency"
+            [legend]="false"
+            [explodeSlices]="false"
+            [labels]="false"
+            [doughnut]="true"
+            [tooltipDisabled]="true"
+            [gradient]="true">
+          </ngx-charts-pie-chart>
+
+          <div class="chart--label">
+            <div class="metrics metrics_percent">
+              <div class="metrics--counter">
+                <span class="metrics--value" count-up>24</span>
+                <span class="metrics--sign">%</span>
+              </div>
+
+              <span class="metrics--info">Cost Savings</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-33">
+
+        <h3 class="overview--title">Estimated savings</h3>
+
+        <div class="overview--metrics">
+          <div class="metrics metrics_dollars">
+            <div class="metrics--counter">
+              <span class="metrics--sign">$</span>
+              <span class="metrics--value" count-up>81377</span>
+              <span class="metrics--value metrics--value_sub" count-up>92</span>
+            </div>
+
+            <span class="metrics--info">Estimated Annual Savings</span>
+          </div>
+
+          <div class="metrics metrics_dollars">
+            <div class="metrics--counter">
+              <span class="metrics--sign">$</span>
+              <span class="metrics--value" count-up>1670</span>
+              <span class="metrics--value metrics--value_sub" count-up>25</span>
+            </div>
+
+            <span class="metrics--info">Running Weekly Savings</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-33">
+
+        <h3 class="overview--title">Custom rule cost</h3>
+
+        <div class="chart chart_overview">
+          <ngx-charts-gauge
+            class="chart--canvas"
+            [scheme]="chartStyles"
+            [results]="customRule"
+            [min]="0"
+            [max]="100"
+            [angleSpan]="240"
+            [tooltipDisabled]="true"
+            [startAngle]="-120"
+            [showAxis]="false"
+            [bigSegments]="10"
+            [smallSegments]="5">
+          </ngx-charts-gauge>
+
+          <div class="chart--label">
+            <div class="metrics metrics_percent">
+              <div class="metrics--counter">
+                <span class="metrics--value" count-up>24</span>
+                <span class="metrics--sign">%</span>
+              </div>
+
+              <span class="metrics--info">Cost Savings</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="row analysis">
+
+      <div class="analysis--header">
+        <div class="col-25 analysis--title">
+          Purchases Versus Savings
+        </div>
+
+        <ul class="col-50 analysis--legend">
+          <li>
+            <i class="analysis--icon"></i>
+            Savings
+          </li>
+
+          <li>
+            <i class="analysis--icon"></i>
+            Purchases
+          </li>
+        </ul>
+
+        <div class="col-25 analysis--filter">
+          <div class="date-picker">
+            <label class="item-input-wrapper">
+              <input date-range-picker class="form-control date-picker orderList input" type="text" ng-model="vm.datePicker.date" placeholder="" ng-readonly="true" data-opens="down" options="vm.datePicker.options">
+              <i class="icon hvst-calendar placeholder-icon"></i>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <ngx-charts-line-chart
+        class="chart chart_line"
+        [scheme]="chartStyles"
+        [results]="report"
+        [gradient]="true"
+        [xAxis]="true"
+        [tooltipDisabled]="true"
+        [yAxis]="true"
+        [legend]="false"
+        [yAxisTickFormatting]="formatMoneyValue"
+        [xAxisTickFormatting]="formatDateValue"
+        [autoScale]="true">
+      </ngx-charts-line-chart>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col col-80">
+
+
+
+  </div>
+</div>

@@ -1,0 +1,163 @@
+home-component {
+  // ===================================================================================================
+  // Welcome View
+  // ===================================================================================================
+  .metrics {
+    font-size: 1.25em;
+  }
+
+  .headline {
+    text-align: center;
+
+    h1 {
+      display: flex;
+      font-family: "ProximaNova-Light";
+      font-size: 3.3em;
+      color: $harvest-grey-4d4d;
+      align-items: center;
+      justify-content: center;
+
+      &:before{
+        vertical-align: inherit;
+        padding-right: .35em;
+        line-height: 42px;
+        font-size: 50px;
+      }
+    }
+
+    h3 {
+      font-family: "ProximaNova-Light";
+      color: $harvest-grey-4d4d;
+      font-size: 2.3em;
+    }
+  }
+
+  h4{
+    font-size: 1.9em;
+    font-family: "ProximaNova-SemiBold";
+    letter-spacing: 2px;
+    margin-top: 40px;
+  }
+
+  .welcome-options{
+    margin-top: 20px;
+    width: 100%;
+    padding: 20px 30px;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+
+    h4{
+      color: $harvest-grey-4d4d;
+    }
+
+    & > div:nth-child(2) {
+      border-right: 1px solid;
+      border-left: 1px solid;
+      border-right-color: $harvest_light_grey;
+      border-left-color: $harvest_light_grey;
+    }
+
+    .welcome-order {
+
+
+      .button-hero{
+        margin-top: 45px;
+      }
+
+      button.continueBtn{
+        display: none;
+      }
+
+      div.order-started{
+        button.startBtn{
+          display: none;
+        }
+        button.continueBtn{
+          display: inline-block;
+        }
+      }
+
+      h3 {
+        margin-top: 5px;
+        font-size: 1em;
+        font-weight: 400;
+        color: $harvest_light_text;
+
+        i {
+          position: relative;
+          top: -2px;
+          left: 16px;
+          font-size: 14px;
+          color: map_get($colors, "energized");
+        }
+      }
+    }
+  }
+
+
+  div.welcome-savings{
+    color: $harvest-grey-4d4d;
+
+    span{
+      display: block;
+    }
+
+    div.dollars{
+      display: inline-block;
+
+      span{
+        display: inline-block;
+      }
+
+      span.dollar-sign{
+        font-size: 2.2em;
+        position: relative;
+        top:-21px;
+      }
+
+      span.cents{
+        font-size: 1.9em;
+      }
+    }
+
+    span.label{
+      font-size: 1.2em;
+    }
+
+    div.savings-estimate{
+      margin-top: 40px;
+
+      span.dollars{
+        font-family: AvenirNextLTPro-Demi;
+        font-size: 4.6em;
+      }
+    }
+
+    div.savings-percent{
+      margin-top: 40px;
+
+      span.percent{
+        font-family: AvenirNextLTPro-Demi;
+        font-size: 4.2em;
+
+        i{
+          font-size: 0.4em;
+          position: relative;
+          top: -10px;
+        }
+
+        span{
+          display: inline;
+        }
+
+        span.percent-mark{
+          font-size: 0.5em;
+          position: relative;
+          top:-20px;
+        }
+      }
+    }
+  }
+
+}

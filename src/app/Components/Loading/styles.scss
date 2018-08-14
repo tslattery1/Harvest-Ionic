@@ -1,0 +1,12 @@
+.loading {
+    display: flex;
+    width: 100%;
+    flex-flow: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 15px 10px;
+  
+    .spinner {
+      margin-right: 15px;
+    }
+  }

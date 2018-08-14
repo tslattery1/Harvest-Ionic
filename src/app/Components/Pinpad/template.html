@@ -1,0 +1,70 @@
+<div class="pinpad">
+  <div class="pinpad--row">
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_7"
+            [disabled]="disabled"
+            [color]="color"
+            (click)="doClickDigit(7)">7</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_8"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(8)">8</button>
+    <button ion-button round outline
+            [color]="color"
+            class="pinpad--button pinpad--button_9"
+            [disabled]="disabled"
+            (click)="doClickDigit(9)">9</button>
+  </div>
+
+  <div class="pinpad--row">
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_4"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(4)">4</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_5"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(5)">5</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_6"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(6)">6</button>
+  </div>
+
+  <div class="pinpad--row">
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_1"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(1)">1</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_2"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(2)">2</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_3"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(3)">3</button>
+  </div>
+
+  <div class="pinpad--row">
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_0"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickDigit(0)">0</button>
+    <button ion-button round outline
+            class="pinpad--button pinpad--button_clear"
+            [color]="color"
+            [disabled]="disabled"
+            (click)="doClickReset()">
+      <ion-icon name="backspace"></ion-icon>
+    </button>
+  </div>
+</div>

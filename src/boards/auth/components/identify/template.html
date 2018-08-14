@@ -1,0 +1,73 @@
+<header>
+  <div class="box--actions">
+    <button class="box--action box--action_right" ion-button clear>
+      Contact customer support
+      <i class="icon hvst-support"></i>
+    </button>
+  </div>
+
+  <dynamic-title class="box--title" title="Link tablet to your Harvest account" icon="hvst-graphs"></dynamic-title>
+</header>
+
+<section class="container">
+  <form [formGroup]="form">
+    <div class="well">
+
+      <div *ngIf="!state.isFinished">
+
+        <header class="well--header">
+          <dynamic-title class="well--title" [title]="state.title.message" [color]="state.title.color" [@title]="state.title.state"></dynamic-title>
+          <dynamic-title class="well--description" [title]="state.description"></dynamic-title>
+        </header>
+
+        <div class="well--content">
+          <div class="input input_group">
+            <i class="icon input--icon hvst-lock"></i>
+
+            <input class="input--control" type="text" formControlName="token">
+
+            <div class="input--state" [@state]="stateIdentifier" *ngIf="isChecked">
+              <ion-spinner *ngIf="isInProgress"></ion-spinner>
+              <ion-icon name="ios-checkmark-circle-outline" class="icon icon_success" *ngIf="!isInProgress && isValid()"></ion-icon>
+              <ion-icon name="ios-close-circle-outline" class="icon icon_fail" *ngIf="!(isInProgress || isValid())"></ion-icon>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div *ngIf="state.isFinished">
+        <div class="success well--content">
+          <ion-label color="balanced" class="success--title">Tablet successfully linked to account: {{ state.location.name }}</ion-label>
+          <ion-icon class="success--icon" color="balanced" name="ios-checkmark-circle"></ion-icon>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="box--actions">
+      <button ion-button
+              class="button"
+              outline
+              color="calm"
+              (click)="doResendIdentificationCode()"
+              [disabled]="isInProgress || isValid() || state.isSubmitInProgress || state.isTokenSendInProgress || state.isFinished"
+      >
+        <div class="button--overlay" *ngIf="state.isTokenSendInProgress">
+          <ion-spinner></ion-spinner>
+        </div>
+        Resend code to Email
+      </button>
+      <button ion-button
+              color="balanced"
+              [disabled]="isInProgress || !isValid() || state.isSubmitInProgress || state.isTokenSendInProgress || state.isFinished"
+              (click)="doSaveCode()"
+      >
+        <div class="button--overlay" *ngIf="state.isSubmitInProgress">
+          <ion-spinner></ion-spinner>
+        </div>
+        Submit Authentication Code
+      </button>
+    </div>
+  </form>
+</section>

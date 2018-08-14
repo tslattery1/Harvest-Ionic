@@ -1,0 +1,52 @@
+<div class="table table_striped">
+
+    <p-table [columns]="cols" [value]="items" [responsive]="true" dataKey="id" [loading]="!isReady" #table>
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+                    {{col.header}}
+                    <p-sortIcon [field]="col.field"></p-sortIcon>
+                </th>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-rowData let-expanded="expanded" let-columns="columns">
+            <tr>
+                <td *ngFor="let col of columns" [ngSwitch]="col.field">
+                    <ng-template ngSwitchCase='name'>
+                        <div class="item">
+                            <div class="item--avatar">
+                                <img [src]="rowData['image_src']">
+                            </div>
+
+                            <div class="item--title">
+                                {{ rowData['name'] }}
+                            </div>
+                        </div>
+                    </ng-template>
+
+                    <ng-template ngSwitchCase='price'>
+                        {{ rowData[col.field] | currency }}
+                    </ng-template>
+
+                    <ng-template ngSwitchCase='item_subtotal'>
+                        {{ rowData[col.field] | currency }}
+                    </ng-template>
+
+                    <ng-template ngSwitchDefault>
+                        {{ rowData[col.field] }}
+                    </ng-template>
+                </td>
+            </tr>
+        </ng-template>
+
+        <ng-template pTemplate="emptymessage" let-columns>
+            <tr>
+                <td [attr.colspan]="columns.length">
+                    No data available on this section
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+</div>

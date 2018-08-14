@@ -1,0 +1,31 @@
+<ion-content class="full">
+
+  <div class="header">
+
+    <div class="header--cell header--cell_left">
+      <current-company></current-company>
+    </div>
+
+    <div class="header--cell header--cell_logo">
+      <img src="assets/img/login/logo.svg">
+    </div>
+
+    <div class="header--cell header--cell_right">
+      <div class="right-text-container">
+        <div class="time">{{ time | async | moment:'LT' }}</div>
+        <div class="date">{{ time | async | moment:'dddd, MMMM Do YYYY' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <ion-card class="box" [@widen]="box.size" [@box] [ngClass]="box.classes">
+    <ion-card-content class="box--content" id="container">
+      <ng-template #container></ng-template>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="background background_animate">
+    <div class="background--overlay"></div>
+    <div class="background--image"></div>
+  </div>
+</ion-content>

@@ -1,0 +1,148 @@
+cart-latest-overview {
+    .loading {
+        margin: 20px 0;
+        justify-content: center;
+    }
+
+    .button-hero{
+        margin-top: 180px;
+    }
+
+    button.continueBtn{
+        display: none;
+    }
+
+    div.order-started{
+        button.startBtn{
+            display: none;
+        }
+        button.continueBtn{
+            display: inline-block;
+        }
+    }
+
+    h3 {
+        margin-top: 14px;
+        font-size:29px;
+        color: $harvest_light_text;
+
+        i {
+            position: relative;
+            top: -2px;
+            left: 16px;
+            font-size: 14px;
+            color: map_get($colors, "energized");
+        }
+    }
+
+    div.todayOrderContainer{
+
+        div.active-order {
+            color: $harvest-grey-4d4d;
+            border: 1px solid $harvest_very_light_grey;
+            border-radius: 4px;
+            padding: 10px 4px;
+            max-width: 90%;
+            font-size: 0.8em;
+            margin: 0 auto;
+            margin-top: 40px;
+
+            div.title {
+                font-size: 1.75em;
+                line-height: 1.75;
+                margin: 10px 0 ;
+
+                .icon {
+                    font-size: 1.5em;
+                    position: relative;
+                    top: -1px;
+                    left: 4px;
+                }
+            }
+
+            &.status-1, &.status-2{
+                div.status{
+                    color: map_get($colors, "balanced");
+
+                    span{
+                        color: $harvest-grey-4d4d;
+                    }
+                }
+
+                div.title i{
+                    color: map_get($colors, "balanced");
+                }
+            }
+
+            &.status-3 {
+                div.status{
+                    color: map_get($colors, "assertive");
+
+                    span{
+                        color: $harvest-grey-4d4d;
+                    }
+                }
+
+                div.title i{
+                    color: map_get($colors, "assertive");
+                }
+            }
+        }
+
+        div.detailsContainer{
+            font-size: 1.3em;
+            margin: 0 auto;
+            width: 90%;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: left;
+            position: relative;
+
+            span.label{
+                font-family: ProximaNova-SemiBold;
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            div.col:nth-child(2) div{
+                text-align: right;
+            }
+
+            div.col{
+                white-space: nowrap;
+            }
+
+            div.col div:nth-child(2){
+                margin-top: 15px;
+            }
+
+        }
+
+        div.statusContainer{
+            width: 100%;
+            border-top: 1px solid $harvest_very_light_grey;
+            padding: 10px 25px;
+            font-size: 1.3em;
+            text-align: left;
+
+            span.updatedLabel{
+                font-family: ProximaNova-SemiBold;
+                display: block;
+            }
+
+            span.updatedTime{
+                display: inline-block;
+                margin-top: 12px;
+                color: map_get($colors, "calm");
+            }
+
+            div.col-40{
+                text-align: right;
+            }
+
+            button{
+                font-family: ProximaNova-Regular;
+            }
+        }
+    }
+}

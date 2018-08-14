@@ -1,0 +1,35 @@
+<div class="step">
+  <div class="step--label">
+    <i class="icon hvst-cart-1"></i>
+    Step 1
+  </div>
+
+  <div class="step--title">Start a New Order</div>
+</div>
+
+<div class="container">
+  <div class="row text-center">
+    <div class="col">
+      <span class="select-order-type">What kind of food order do you want to place today?</span>
+
+      <form ng-submit="" class="create-order">
+        <input type="radio" id="manual-order" name="orderType" value="manual" checked>
+        <label for="manual-order">
+          <i class="icon hvst-rocket-1"></i>
+          Manual Order
+        </label>
+
+        <input type="radio" id="smart-order" name="orderType" value="smart">
+        <label for="smart-order">
+          <i class="icon hvst-clipboard-3"></i>
+          Smart Order
+        </label>
+      </form>
+
+    </div>
+  </div>
+
+  <div class="row actions">
+    <button ion-button color="balanced" class="button-hero" (click)="doClickNext()" end>Next!</button>
+  </div>
+</div>

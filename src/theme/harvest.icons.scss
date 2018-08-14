@@ -1,0 +1,273 @@
+$harvesticons-font-path: '../assets/icon/harvest/' !default;
+$harvesticons-font-family: "harvest-icons" !default;
+$harvesticons-version: "1.0" !default;
+$harvesticons-prefix: hvst- !default;
+
+$harvesticons-arrow-arrow: "\e600";
+$harvesticons-arrow-right: "\e601";
+$harvesticons-arrow-up: "\e602";
+$harvesticons-atom-large: "\e603";
+$harvesticons-atom-small: "\e604";
+$harvesticons-cart-1: "\e605";
+$harvesticons-cart-2: "\e606";
+$harvesticons-cart-3: "\e607";
+$harvesticons-cart-4: "\e608";
+$harvesticons-cart-5: "\e609";
+$harvesticons-checkmark-1: "\e60a";
+$harvesticons-checkmark-2: "\e60b";
+$harvesticons-clipboard-1: "\e60c";
+$harvesticons-clipboard-2: "\e60d";
+$harvesticons-clipboard-3: "\e626";
+$harvesticons-clock-small: "\e60e";
+$harvesticons-delivery-1: "\e60f";
+$harvesticons-delivery-2: "\e610";
+$harvesticons-education: "\e611";
+$harvesticons-filter: "\e612";
+$harvesticons-fork-knife: "\e613";
+$harvesticons-graphs: "\e614";
+$harvesticons-headset: "\e615";
+$harvesticons-minus: "\e616";
+$harvesticons-no-wifi: "\e617";
+$harvesticons-package-1: "\e618";
+$harvesticons-package-2: "\e619";
+$harvesticons-payment-1: "\e61a";
+$harvesticons-payment-2: "\e61b";
+$harvesticons-pencil-small: "\e61c";
+$harvesticons-plus: "\e61d";
+$harvesticons-rocket-1: "\e627";
+$harvesticons-search-1: "\e61e";
+$harvesticons-search-2: "\e61f";
+$harvesticons-settings: "\e620";
+$harvesticons-sun: "\e621";
+$harvesticons-user-1: "\e622";
+$harvesticons-user-add: "\e623";
+$harvesticons-warning: "\e624";
+$harvesticons-cancel: "\e625";
+$harvesticons-clipboard-plus: "\e926";
+$harvesticons-add_reply: "\e905";
+$harvesticons-microphone: "\e906";
+$harvesticons-support-2: "\e907";
+$harvesticons-support: "\e908";
+$harvesticons-magicwand: "\e909";
+$harvesticons-integrations: "\e90a";
+$harvesticons-lock-2: "\e90b";
+$harvesticons-credit_card-dark: "\e90c";
+$harvesticons-invoice-complete: "\e90d";
+$harvesticons-clock-future: "\e90e";
+$harvesticons-coins: "\e90f";
+$harvesticons-printer: "\e910";
+$harvesticons-check: "\e911";
+$harvesticons-documents: "\e912";
+$harvesticons-invoice: "\e913";
+$harvesticons-clipboard-check: "\e914";
+$harvesticons-camera: "\e915";
+$harvesticons-key: "\e916";
+$harvesticons-arrow-down-small: "\e917";
+$harvesticons-idcard: "\e918";
+$harvesticons-lock-reset: "\e919";
+$harvesticons-lock: "\e91a";
+$harvesticons-delete_char: "\e91b";
+$harvesticons-arrow-curve: "\e91c";
+$harvesticons-calendar: "\e91d";
+$harvesticons-pulse: "\e91e";
+$harvesticons-graphs-2: "\e91f";
+$harvesticons-gauge: "\e920";
+$harvesticons-trash: "\e921";
+$harvesticons-list: "\e922";
+$harvesticons-power: "\e923";
+$harvesticons-user-2: "\e924";
+$harvesticons-notification_bell: "\e925";
+$harvesticons-cart-6: "\e900";
+$harvesticons-cart-7: "\e901";
+$harvesticons-cart-8: "\e902";
+$harvesticons-supplier_store: "\e903";
+$harvesticons-invoice_menu: "\e904";
+
+@font-face {
+  font-family: $harvesticons-font-family;
+  src:url("#{$harvesticons-font-path}harvest-icons.eot?v=#{$harvesticons-version}");
+  src:url("#{$harvesticons-font-path}harvest-icons.eot?v=#{$harvesticons-version}#iefix") format("embedded-opentype"),
+  url("#{$harvesticons-font-path}harvest-icons.ttf?v=#{$harvesticons-version}") format("truetype"),
+  url("#{$harvesticons-font-path}harvest-icons.woff?v=#{$harvesticons-version}") format("woff"),
+  url("#{$harvesticons-font-path}harvest-icons.svg?v=#{$harvesticons-version}#harvest-icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.harvesticon{
+  display: inline-block;
+  font-family: $harvesticons-font-family;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.#{$harvesticons-prefix}arrow-arrow:before,
+.#{$harvesticons-prefix}arrow-right:before,
+.#{$harvesticons-prefix}arrow-up:before,
+.#{$harvesticons-prefix}atom-large:before,
+.#{$harvesticons-prefix}atom-small:before,
+.#{$harvesticons-prefix}cart-1:before,
+.#{$harvesticons-prefix}cart-2:before,
+.#{$harvesticons-prefix}cart-3:before,
+.#{$harvesticons-prefix}cart-4:before,
+.#{$harvesticons-prefix}cart-5:before,
+.#{$harvesticons-prefix}checkmark-1:before,
+.#{$harvesticons-prefix}checkmark-2:before,
+.#{$harvesticons-prefix}clipboard-1:before,
+.#{$harvesticons-prefix}clipboard-2:before,
+.#{$harvesticons-prefix}clipboard-3:before,
+.#{$harvesticons-prefix}clock-small:before,
+.#{$harvesticons-prefix}delivery-1:before,
+.#{$harvesticons-prefix}delivery-2:before,
+.#{$harvesticons-prefix}education:before,
+.#{$harvesticons-prefix}filter:before,
+.#{$harvesticons-prefix}fork-knife:before,
+.#{$harvesticons-prefix}graphs:before,
+.#{$harvesticons-prefix}headset:before,
+.#{$harvesticons-prefix}minus:before,
+.#{$harvesticons-prefix}no-wifi:before,
+.#{$harvesticons-prefix}package-1:before,
+.#{$harvesticons-prefix}package-2:before,
+.#{$harvesticons-prefix}payment-1:before,
+.#{$harvesticons-prefix}payment-2:before,
+.#{$harvesticons-prefix}pencil-small:before,
+.#{$harvesticons-prefix}plus:before,
+.#{$harvesticons-prefix}rocket-1:before,
+.#{$harvesticons-prefix}search-1:before,
+.#{$harvesticons-prefix}search-2:before,
+.#{$harvesticons-prefix}settings:before,
+.#{$harvesticons-prefix}sun:before,
+.#{$harvesticons-prefix}user-1:before,
+.#{$harvesticons-prefix}user-add:before,
+.#{$harvesticons-prefix}warning:before,
+.#{$harvesticons-prefix}cancel:before,
+.#{$harvesticons-prefix}clipboard-plus:before,
+.#{$harvesticons-prefix}add_reply:before,
+.#{$harvesticons-prefix}microphone:before,
+.#{$harvesticons-prefix}support-2:before,
+.#{$harvesticons-prefix}support:before,
+.#{$harvesticons-prefix}magicwand:before,
+.#{$harvesticons-prefix}integrations:before,
+.#{$harvesticons-prefix}lock-2:before,
+.#{$harvesticons-prefix}credit_card-dark:before,
+.#{$harvesticons-prefix}invoice-complete:before,
+.#{$harvesticons-prefix}clock-future:before,
+.#{$harvesticons-prefix}coins:before,
+.#{$harvesticons-prefix}printer:before,
+.#{$harvesticons-prefix}check:before,
+.#{$harvesticons-prefix}documents:before,
+.#{$harvesticons-prefix}invoice:before,
+.#{$harvesticons-prefix}clipboard-check:before,
+.#{$harvesticons-prefix}camera:before,
+.#{$harvesticons-prefix}key:before,
+.#{$harvesticons-prefix}arrow-down-small:before,
+.#{$harvesticons-prefix}idcard:before,
+.#{$harvesticons-prefix}lock-reset:before,
+.#{$harvesticons-prefix}lock:before,
+.#{$harvesticons-prefix}delete_char:before,
+.#{$harvesticons-prefix}arrow-curve:before,
+.#{$harvesticons-prefix}calendar:before,
+.#{$harvesticons-prefix}pulse:before,
+.#{$harvesticons-prefix}graphs-2:before,
+.#{$harvesticons-prefix}gauge:before,
+.#{$harvesticons-prefix}trash:before,
+.#{$harvesticons-prefix}list:before,
+.#{$harvesticons-prefix}power:before,
+.#{$harvesticons-prefix}user-2:before,
+.#{$harvesticons-prefix}notification_bell:before,
+.#{$harvesticons-prefix}cart-6:before,
+.#{$harvesticons-prefix}cart-7:before,
+.#{$harvesticons-prefix}cart-8:before,
+.#{$harvesticons-prefix}supplier_store:before,
+.#{$harvesticons-prefix}invoice_menu:before {
+  @extend .harvesticon;
+}
+
+
+.#{$harvesticons-prefix}arrow-arrow:before{ content: $harvesticons-arrow-arrow;}
+.#{$harvesticons-prefix}arrow-right:before{ content: $harvesticons-arrow-right;}
+.#{$harvesticons-prefix}arrow-up:before{ content: $harvesticons-arrow-up;}
+.#{$harvesticons-prefix}atom-large:before{ content: $harvesticons-atom-large;}
+.#{$harvesticons-prefix}atom-small:before{ content: $harvesticons-atom-small;}
+.#{$harvesticons-prefix}cart-1:before{ content: $harvesticons-cart-1;}
+.#{$harvesticons-prefix}cart-2:before{ content: $harvesticons-cart-2;}
+.#{$harvesticons-prefix}cart-3:before{ content: $harvesticons-cart-3;}
+.#{$harvesticons-prefix}cart-4:before{ content: $harvesticons-cart-4;}
+.#{$harvesticons-prefix}cart-5:before{ content: $harvesticons-cart-5;}
+.#{$harvesticons-prefix}checkmark-1:before{ content: $harvesticons-checkmark-1;}
+.#{$harvesticons-prefix}checkmark-2:before{ content: $harvesticons-checkmark-2;}
+.#{$harvesticons-prefix}clipboard-1:before{ content: $harvesticons-clipboard-1;}
+.#{$harvesticons-prefix}clipboard-2:before{ content: $harvesticons-clipboard-2;}
+.#{$harvesticons-prefix}clipboard-3:before{ content: $harvesticons-clipboard-3;}
+.#{$harvesticons-prefix}clock-small:before{ content: $harvesticons-clock-small;}
+.#{$harvesticons-prefix}delivery-1:before{ content: $harvesticons-delivery-1;}
+.#{$harvesticons-prefix}delivery-2:before{ content: $harvesticons-delivery-2;}
+.#{$harvesticons-prefix}education:before{ content: $harvesticons-education;}
+.#{$harvesticons-prefix}filter:before{ content: $harvesticons-filter;}
+.#{$harvesticons-prefix}fork-knife:before{ content: $harvesticons-fork-knife;}
+.#{$harvesticons-prefix}graphs:before{ content: $harvesticons-graphs;}
+.#{$harvesticons-prefix}headset:before{ content: $harvesticons-headset;}
+.#{$harvesticons-prefix}minus:before{ content: $harvesticons-minus;}
+.#{$harvesticons-prefix}no-wifi:before{ content: $harvesticons-no-wifi;}
+.#{$harvesticons-prefix}package-1:before{ content: $harvesticons-package-1;}
+.#{$harvesticons-prefix}package-2:before{ content: $harvesticons-package-2;}
+.#{$harvesticons-prefix}payment-1:before{ content: $harvesticons-payment-1;}
+.#{$harvesticons-prefix}payment-2:before{ content: $harvesticons-payment-2;}
+.#{$harvesticons-prefix}pencil-small:before{ content: $harvesticons-pencil-small;}
+.#{$harvesticons-prefix}plus:before{ content: $harvesticons-plus;}
+.#{$harvesticons-prefix}rocket-1:before{ content: $harvesticons-rocket-1;}
+.#{$harvesticons-prefix}search-1:before{ content: $harvesticons-search-1;}
+.#{$harvesticons-prefix}search-2:before{ content: $harvesticons-search-2;}
+.#{$harvesticons-prefix}settings:before{ content: $harvesticons-settings;}
+.#{$harvesticons-prefix}sun:before{ content: $harvesticons-sun;}
+.#{$harvesticons-prefix}user-1:before{ content: $harvesticons-user-1;}
+.#{$harvesticons-prefix}user-add:before{ content: $harvesticons-user-add;}
+.#{$harvesticons-prefix}warning:before{ content: $harvesticons-warning;}
+.#{$harvesticons-prefix}cancel:before{ content: $harvesticons-cancel;}
+.#{$harvesticons-prefix}clipboard-plus:before{ content: $harvesticons-clipboard-plus;}
+.#{$harvesticons-prefix}add_reply:before{ content: $harvesticons-add_reply;}
+.#{$harvesticons-prefix}microphone:before{ content: $harvesticons-microphone;}
+.#{$harvesticons-prefix}support-2:before{ content: $harvesticons-support-2;}
+.#{$harvesticons-prefix}support:before{ content: $harvesticons-support;}
+.#{$harvesticons-prefix}magicwand:before{ content: $harvesticons-magicwand;}
+.#{$harvesticons-prefix}integrations:before{ content: $harvesticons-integrations;}
+.#{$harvesticons-prefix}lock-2:before{ content: $harvesticons-lock-2;}
+.#{$harvesticons-prefix}credit_card-dark:before{ content: $harvesticons-credit_card-dark;}
+.#{$harvesticons-prefix}invoice-complete:before{ content: $harvesticons-invoice-complete;}
+.#{$harvesticons-prefix}clock-future:before{ content: $harvesticons-clock-future;}
+.#{$harvesticons-prefix}coins:before{ content: $harvesticons-coins;}
+.#{$harvesticons-prefix}printer:before{ content: $harvesticons-printer;}
+.#{$harvesticons-prefix}check:before{ content: $harvesticons-check;}
+.#{$harvesticons-prefix}documents:before{ content: $harvesticons-documents;}
+.#{$harvesticons-prefix}invoice:before{ content: $harvesticons-invoice;}
+.#{$harvesticons-prefix}clipboard-check:before{ content: $harvesticons-clipboard-check;}
+.#{$harvesticons-prefix}camera:before{ content: $harvesticons-camera;}
+.#{$harvesticons-prefix}key:before{ content: $harvesticons-key;}
+.#{$harvesticons-prefix}arrow-down-small:before{ content: $harvesticons-arrow-down-small;}
+.#{$harvesticons-prefix}idcard:before{ content: $harvesticons-idcard;}
+.#{$harvesticons-prefix}lock-reset:before{ content: $harvesticons-lock-reset;}
+.#{$harvesticons-prefix}lock:before{ content: $harvesticons-lock;}
+.#{$harvesticons-prefix}delete_char:before{ content: $harvesticons-delete_char;}
+.#{$harvesticons-prefix}arrow-curve:before{ content: $harvesticons-arrow-curve;}
+.#{$harvesticons-prefix}calendar:before{ content: $harvesticons-calendar;}
+.#{$harvesticons-prefix}pulse:before{ content: $harvesticons-pulse;}
+.#{$harvesticons-prefix}graphs-2:before{ content: $harvesticons-graphs-2;}
+.#{$harvesticons-prefix}gauge:before{ content: $harvesticons-gauge;}
+.#{$harvesticons-prefix}trash:before{ content: $harvesticons-trash;}
+.#{$harvesticons-prefix}list:before{ content: $harvesticons-list;}
+.#{$harvesticons-prefix}power:before{ content: $harvesticons-power;}
+.#{$harvesticons-prefix}user-2:before{ content: $harvesticons-user-2;}
+.#{$harvesticons-prefix}notification_bell:before{ content: $harvesticons-notification_bell;}
+.#{$harvesticons-prefix}cart-6:before{ content: $harvesticons-cart-6;}
+.#{$harvesticons-prefix}cart-7:before{ content: $harvesticons-cart-7;}
+.#{$harvesticons-prefix}cart-8:before{ content: $harvesticons-cart-8;}
+.#{$harvesticons-prefix}supplier_store:before{ content: $harvesticons-supplier_store;}
+.#{$harvesticons-prefix}invoice_menu:before{ content: $harvesticons-invoice_menu;}
+

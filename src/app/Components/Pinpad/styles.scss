@@ -1,0 +1,41 @@
+pinpad {
+  .pinpad {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    &--row {
+      display: flex;
+      flex-flow: column;
+      flex-flow: row;
+      align-items: center;
+      justify-content: center;
+
+      &_right {
+        justify-items: flex-end;
+      }
+    }
+
+    &--button {
+      display: block;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5em;
+      font-weight: 300;
+      font-family: ProximaNova-Light, serif;
+      border-radius: 100%;
+      padding: 0;
+      border-width: 3px;
+      margin: 5px 10px;
+
+      .button-inner {
+        justify-content: center;
+      }
+
+      .icon {
+        margin-right: 0;
+      }
+    }
+  }
+}
